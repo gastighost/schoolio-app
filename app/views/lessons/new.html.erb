@@ -1,0 +1,9 @@
+<div class="container">
+<%= simple_form_for [ @course, @subtopic, @lesson ] do |f| %>
+  <%= f.input :date %>
+  <%= f.input :time %>
+  <%= f.input :duration %>
+  <%= f.input :max_capacity %>
+  <%= f.submit "Add lesson", class: "btn btn-primary" %>
+<% end %>
+</div>

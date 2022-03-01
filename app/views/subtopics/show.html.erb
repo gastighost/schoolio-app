@@ -9,4 +9,15 @@
                 subtopic_path(@subtopic),
                 method: :delete,
                 data: { confirm: "Are you sure?" } %>
+
+<h2>Lessons</h2>
+<%= link_to "Add a lesson", new_course_subtopic_lesson_path(@course, @subtopic) %>
+<% @subtopic.lessons.each do |lesson| %>
+<div class="container my-3">
+<h3><%= link_to lesson.date, course_subtopic_lesson_path(@course, @subtopic, lesson) %></h3>
+<p>Time: <%= lesson.time %></p>
+<p>Duration (min): <%= lesson.duration %></p>
+<p>Max Capacity: <%= lesson.max_capacity %></p>
+</div>
+<% end %>
 </div>

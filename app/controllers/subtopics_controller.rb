@@ -29,7 +29,7 @@ class SubtopicsController < ApplicationController
     @subtopic = Subtopic.find(params[:id])
     @course = @subtopic.course
     @subtopic.update(subtopic_params)
-    redirect_to course_path(@subtopic.course)
+    redirect_to course_subtopic_path(@course, @subtopic)
   end
 
   def destroy
