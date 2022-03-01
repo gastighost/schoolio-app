@@ -1,0 +1,4 @@
+<%= simple_form_for [ @course, @subtopic ] do |f| %>
+  <%= f.input :description %>
+  <%= f.submit "Add subtopic", class: "btn btn-primary" %>
+<% end %>

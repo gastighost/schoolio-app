@@ -1,0 +1,12 @@
+<div class="container">
+<h1>Your subtopic</h1>
+
+<br>
+<h2><%= @subtopic.description %></h2>
+<%= link_to "Go back to course", course_path(@course) %>
+<%= link_to 'Edit subtopic', edit_course_subtopic_path(@course, @subtopic) %>
+<%= link_to "Delete subtopic",
+                subtopic_path(@subtopic),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
+</div>
