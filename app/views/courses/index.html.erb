@@ -1,0 +1,9 @@
+<ul>
+  <% @courses.each do |course| %>
+    <li><%= course.subject %></li>
+    <li><%= course.topic %></li>
+    <li><%= course.school_year %></li>
+    <li><%= course.performance_level %></li>
+    <li>Teacher: <%= User.find(course.user_id).name %></li>
+  <% end %>
+</ul>
