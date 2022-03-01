@@ -12,12 +12,14 @@
 <h3>Course Subtopics</h3>
 <%= link_to "Add a subtopic", new_course_subtopic_path(@course) %>
 <% @course.subtopics.each do |subtopic| %>
+<div class="container my-3">
 <%= link_to subtopic.description, course_subtopic_path(@course, subtopic) %>
 <%= link_to 'Edit', edit_course_subtopic_path(@course, subtopic) %>
 <%= link_to "Delete Subtopic",
                 subtopic_path(subtopic),
                 method: :delete,
                 data: { confirm: "Are you sure?" } %>
+</div>
 <% end %>
 </div>
 
