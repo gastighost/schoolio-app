@@ -29,6 +29,7 @@ end
 puts hrefs
 puts hrefs.count
 
+trial = {}
 #Going into the URL of subtopic and retrieving all data for courses and subtopics 5th class
 hrefs.each do |href|
   url_subtopic = "https://www.khanacademy.org#{href}"
@@ -60,4 +61,7 @@ hrefs.each do |href|
       subtopic_description << course_topic.text.strip
     end
     puts subtopic_description
+    puts subtopic_description.length
+    trial[course_topics.first] = subtopic_description
 end
+p trial

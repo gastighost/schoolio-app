@@ -1,59 +1,59 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 require "open-uri"
 require "nokogiri"
 
 Course.destroy_all
 puts "Destroying all courses"
+Subtopic.destroy_all
+puts "Destroying all courses"
 User.destroy_all
 puts "Destroying all users"
 
-# Creating an array of with URL of subtopics of 5th class
-url = "https://www.khanacademy.org/math/cc-fifth-grade-math"
-html = URI.open(url)
-doc = Nokogiri::HTML(html)
-
-subctopic_links = doc.search("._1jkfus0z ._dwmetq")
-
-hrefs = []
-subctopic_links.each do |link|
-  hrefs << link["href"]
-end
-# puts hrefs
-# puts hrefs.count
-
-#Going into the URL of subtopic and retrieving all data for courses and subtopics 5th class
-hrefs.each do |href|
-  url_subtopic = "https://www.khanacademy.org#{href}"
-  html_subtopic = URI.open(url_subtopic)
-  doc_subtopic = Nokogiri::HTML(html_subtopic)
-
-  # Retrieving "topic" in the table "courses"
-    course_topic_links = doc_subtopic.search("._1eqoe4n8")
-
-    course_topics = []
-    course_topic_links.each do |course_topic|
-      course_topics << course_topic.text.strip
-    end
-
-  #Retrieving "description" in the table "subtopics"
-    course_subtopic_links = doc_subtopic.search("._lqicet ._dwmetq")
-
-    subtopic_description = []
-    course_subtopic_links.each do |course_topic|
-      subtopic_description << course_topic.text.strip
-    end
-end
-
 # Creating 5th grade math courses
 
-niklas = User.create!(name: "Niklas", description: "Loves Maths", age: 27, school_year: 12, years_of_study: 12,
+niklas = User.create!(email: "niklas@gmail.com", password: 123456, name: "Niklas", description: "Loves Maths", age: 27, school_year: 12, years_of_study: 12,
                       learning_type: "visual", interest: "CrossFit", user_type: "teacher")
-Course.create!(school_year: 5, subject: "Maths", topic: "placeholder", performance_level: "placeholder",
-               user: niklas)
+performance_level = ["beginner", "intermediate", "expert"]
+
+fifth_grade = Scraper.new("https://www.khanacademy.org/math/cc-fifth-grade-math")
+fifth_grade.scrape.each do |topic, descriptions|
+  new_course = Course.create!(school_year: 5, subject: "Maths", topic: topic, performance_level: performance_level,
+                              user: niklas)
+  puts new_course
+  descriptions.each do |description|
+    Subtopic.create!(description: description, course: new_course)
+    puts description
+  end
+end
+
+sixth_grade = Scraper.new("https://www.khanacademy.org/math/cc-sixth-grade-math")
+sixth_grade.scrape.each do |topic, descriptions|
+  new_course = Course.create!(school_year: 6, subject: "Maths", topic: topic, performance_level: performance_level,
+                              user: niklas)
+  puts new_course
+  descriptions.each do |description|
+    Subtopic.create!(description: description, course: new_course)
+    puts description
+  end
+end
+
+seventh_grade = Scraper.new("https://www.khanacademy.org/math/cc-seventh-grade-math")
+seventh_grade.scrape.each do |topic, descriptions|
+  new_course = Course.create!(school_year: 7, subject: "Maths", topic: topic, performance_level: performance_level,
+                              user: niklas)
+  puts new_course
+  descriptions.each do |description|
+    Subtopic.create!(description: description, course: new_course)
+    puts description
+  end
+end
+
+eighth_grade = Scraper.new("https://www.khanacademy.org/math/cc-eighth-grade-math")
+eighth_grade.scrape.each do |topic, descriptions|
+  new_course = Course.create!(school_year: 7, subject: "Maths", topic: topic, performance_level: performance_level,
+                              user: niklas)
+  puts new_course
+  descriptions.each do |description|
+    Subtopic.create!(description: description, course: new_course)
+    puts description
+  end
+end
