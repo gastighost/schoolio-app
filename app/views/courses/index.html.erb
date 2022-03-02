@@ -1,6 +1,17 @@
 <div class="container">
 <h1>Here is your list of courses</h1>
 
+<div class="col-sm-5">
+      <%= form_tag courses_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Search for a course"
+        %>
+        <%= submit_tag "Search", class: "button-search" %>
+      <% end %>
+    </div>
+
 <%= link_to "Add a new course", new_course_path, class: "nav-link" %>
   <ul>
     <% @courses.each do |course| %>
@@ -19,4 +30,15 @@
       </div>
     <% end %>
   </ul>
+
+   <div class="col-sm-5">
+      <%= form_tag creatures_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Search for a course"
+        %>
+        <%= submit_tag "Search", class: "button-search" %>
+      <% end %>
+    </div>
 </div>

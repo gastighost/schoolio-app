@@ -2,3 +2,26 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+@import "top-banner";
+
+.button-search {
+  background-color: white;
+  border-color: grey;
+  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px;
+  margin: 20px 0;
+  border-width: 1px;
+  color: darkblue;
+}
+
+.button-search:hover {
+  background-color: lightgrey;
+}
+
+
+.form-control {
+  background-color: white;
+}
