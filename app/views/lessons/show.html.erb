@@ -6,6 +6,8 @@
 <p>Time: <%= @lesson.time %></p>
 <p>Duration (mins): <%= @lesson.duration %></p>
 <p>Max Capacity: <%= @lesson.max_capacity %></p>
+<%= link_to "Book this lesson", course_subtopic_lesson_bookings_path(lesson_id: params[:id], user_id: current_user.id), method: :post %>
+<br>
 <%= link_to "Go back to subtopic", course_subtopic_path(@course, @subtopic) %>
 <%= link_to 'Edit lesson', edit_course_subtopic_lesson_path(@course, @subtopic, @lesson) %>
 <%= link_to "Delete lesson",
