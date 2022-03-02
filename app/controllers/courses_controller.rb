@@ -1,6 +1,10 @@
 class CoursesController < ApplicationController
   def index
-    @courses = Course.all
+    if params[:query].present?
+      @courses = Course.search_by_subject_and_topic_and_school_year(params[:query])
+    else
+      @courses = Course.all
+    end
   end
 
   def show
