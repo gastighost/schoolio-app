@@ -13,9 +13,37 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <div class="navbar navbar-expand-sm navbar-light space-between">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/LetterS.svg/800px-LetterS.svg.png" width="10" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item active">
+                <%= link_to "Home", root_path,class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <% if !user_signed_in? %>
+                <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <% if user_signed_in? %>
+                <%= link_to "Sign Out",  destroy_user_session_path, method: :delete, class: "nav-link"%>
+                <% else %>
+                <%= link_to "Sign In", user_session_path, class: "nav-link" %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+      </div>
+    </div>
     <%= yield %>
+    <%= render 'shared/flashes' %>
   </body>
 </html>

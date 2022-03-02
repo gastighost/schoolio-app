@@ -1,0 +1,7 @@
+<%= simple_form_for @course do |f| %>
+  <%= f.input :subject %>
+  <%= f.input :topic %>
+  <%= f.input :school_year %>
+  <%= f.input :performance_level %>
+  <%= f.submit "Add course", class: "btn btn-primary" %>
+<% end %>
