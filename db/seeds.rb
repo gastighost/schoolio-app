@@ -33,7 +33,6 @@ hrefs.each do |href|
   url_subtopic = "https://www.khanacademy.org#{href}"
   html_subtopic = URI.open(url_subtopic)
   doc_subtopic = Nokogiri::HTML(html_subtopic)
-  puts doc_subtopic
 
   # Retrieving "topic" in the table "courses"
     course_topic_links = doc_subtopic.search("._1eqoe4n8")
