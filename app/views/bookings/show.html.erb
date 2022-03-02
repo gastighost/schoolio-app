@@ -16,6 +16,7 @@
 <% if @booking.reviews.length > 0 %>
 <h4>Your review</h4>
 <%@booking.reviews.each do |review|%>
+<div class="container border p-2">
 <p>Rating: <%= review.rating %></p>
 <p>Comment: <%= review.comment %></p>
 <%= link_to 'Edit Review', edit_booking_review_path(@booking, review) %>
@@ -23,6 +24,7 @@
                   review_path(review),
                   method: :delete,
                   data: { confirm: "Are you sure?" } %>
+</div>
 <% end %>
 <% end %>
 <br>
