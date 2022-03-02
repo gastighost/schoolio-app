@@ -2,19 +2,13 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
-@import "top-banner";
 
 .button-search {
-  background-color: white;
-  border-color: grey;
-  border-radius: 10px;
-  font-size: 16px;
-  text-align: center;
-  text-decoration: none;
-  padding: 10px;
-  margin: 20px 0;
-  border-width: 1px;
-  color: darkblue;
+  background-color: transparent;
+  border: none;
+  transform: translate(0px, -26px);
+  font-size: 15px;
+  border-radius: 40px;
 }
 
 .button-search:hover {
@@ -24,4 +18,22 @@
 
 .form-control {
   background-color: white;
+  font-size: 10px;
+  padding-left: 25px;
+  border-radius: 40px;
+}
+
+.search-container {
+  border-radius: 40px;
+  background: #FFD66D;
+  padding: 20px;
+  width: 350px;
+  height: 120px;
+  margin: 20px;
+}
+
+.search-container h1{
+  font-size: 21px;
+  color: #58AF14;
+  font-weight: bold;
 }

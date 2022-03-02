@@ -11,3 +11,35 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+.top-banner {
+  background-size: cover;
+  background-position: center;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #58AF14;
+  background-color: #FFD66D;
+  font-size: 24px;
+  font-style: bold;
+}
+
+.general-button {
+  background-color: white;
+  border-color: grey;
+  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px;
+  margin: 20px 0;
+  border-width: 1px;
+  color: #58AF14;
+}
+
+.moving-cap {
+  transform: translate(50px, 0px);
+  font-size: 25px;
+}
