@@ -8,9 +8,9 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(lesson_id: params[:lesson_id], user_id: params[:user_id])
+    @booking = Booking.new(lesson_id: params[:lesson_id], user_id: current_user.id)
     @booking.save
-    redirect_to booking_path(@booking)
+    redirect_to booking_path(@booking.id)
   end
 
   def destroy
