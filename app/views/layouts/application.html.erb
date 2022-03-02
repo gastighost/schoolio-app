@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
     <title>SchoolioApp</title>
+    <div class="top-banner">
+      <strong>Spaceholder</strong>
+      <i class="fa fa-graduation-cap moving-cap"></i>
+    </div>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,37 +18,10 @@
   </head>
 
   <body>
-    <div class="navbar navbar-expand-sm navbar-light space-between">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/LetterS.svg/800px-LetterS.svg.png" width="10" />
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto">
-              <li class="nav-item active">
-                <%= link_to "Home", root_path,class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <% if !user_signed_in? %>
-                <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <% if user_signed_in? %>
-                <%= link_to "Sign Out",  destroy_user_session_path, method: :delete, class: "nav-link"%>
-                <% else %>
-                <%= link_to "Sign In", user_session_path, class: "nav-link" %>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-      </div>
+    <div class="schoolio-main-container">
+      <%= yield %>
     </div>
-    <%= yield %>
+    <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
   </body>
 </html>
