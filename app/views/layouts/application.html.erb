@@ -18,7 +18,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="schoolio-main-container">
+      <%= yield %>
+    </div>
+    <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
   </body>
 </html>
