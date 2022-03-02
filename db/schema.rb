@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_28_161810) do
+ActiveRecord::Schema.define(version: 2022_03_02_113452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,11 +18,9 @@ ActiveRecord::Schema.define(version: 2022_02_28_161810) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "lesson_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "review_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["lesson_id"], name: "index_bookings_on_lesson_id"
-    t.index ["review_id"], name: "index_bookings_on_review_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -53,6 +51,8 @@ ActiveRecord::Schema.define(version: 2022_02_28_161810) do
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "booking_id"
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
   end
 
   create_table "subtopics", force: :cascade do |t|
@@ -84,9 +84,9 @@ ActiveRecord::Schema.define(version: 2022_02_28_161810) do
   end
 
   add_foreign_key "bookings", "lessons"
-  add_foreign_key "bookings", "reviews"
   add_foreign_key "bookings", "users"
   add_foreign_key "courses", "users"
   add_foreign_key "lessons", "subtopics"
+  add_foreign_key "reviews", "bookings"
   add_foreign_key "subtopics", "courses"
 end
