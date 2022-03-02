@@ -3,3 +3,16 @@
                   booking_path(@booking),
                   method: :delete,
                   data: { confirm: "Are you sure?" } %>
+
+<br>
+<%= link_to "Leave a review", new_booking_review_path(@booking) %>
+<h4>Your review</h4>
+<%@booking.reviews.each do |review|%>
+<p><%= review.rating %></p>
+<p><%= review.comment %></p>
+<%= link_to 'Edit Review', edit_booking_review_path(@booking, review) %>
+<%= link_to "Delete Review",
+                  review_path(review),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+<% end %>
