@@ -1,9 +1,6 @@
-<div class="container">
-<h1>Here is a list of courses</h1>
-
 <div class="container-index-search">
-<div class="col-sm-5 search-container">
-<h1>Find a course</h1>
+    <div class="col-sm-5 search-container">
+      <h1>Find a course</h1>
       <%= form_tag courses_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
@@ -15,6 +12,8 @@
         <% end %>
       <% end %>
     </div>
+
+<%= link_to "See your bookings", bookings_path, class: "btn btn-dark" %>
 
 <%= link_to "Add a new course", new_course_path, class: "nav-link" %>
 
