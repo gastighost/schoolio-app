@@ -1,6 +1,8 @@
 <div class="container">
 <h1>Here is your list of courses</h1>
 
+<%= link_to "See your bookings", bookings_path, class: "btn btn-dark" %>
+
 <%= link_to "Add a new course", new_course_path, class: "nav-link" %>
   <ul>
     <% @courses.each do |course| %>
