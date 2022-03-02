@@ -12,7 +12,7 @@ puts "Destroying all users"
 
 niklas = User.create!(email: "niklas@gmail.com", password: 123456, name: "Niklas", description: "Loves Maths", age: 27, school_year: 12, years_of_study: 12,
                       learning_type: "visual", interest: "CrossFit", user_type: "teacher")
-performance_level = ["beginner", "intermediate", "expert"]
+performance_level = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].sample
 
 fifth_grade = Scraper.new("https://www.khanacademy.org/math/cc-fifth-grade-math")
 fifth_grade.scrape.each do |topic, descriptions|
