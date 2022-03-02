@@ -2,3 +2,38 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+
+.button-search {
+  background-color: transparent;
+  border: none;
+  transform: translate(0px, -26px);
+  font-size: 15px;
+  border-radius: 40px;
+}
+
+.button-search:hover {
+  background-color: lightgrey;
+}
+
+
+.form-control {
+  background-color: white;
+  font-size: 10px;
+  padding-left: 25px;
+  border-radius: 40px;
+}
+
+.search-container {
+  border-radius: 40px;
+  background: #FFD66D;
+  padding: 20px;
+  width: 350px;
+  height: 120px;
+  margin: 20px;
+}
+
+.search-container h1{
+  font-size: 21px;
+  color: #58AF14;
+  font-weight: bold;
+}

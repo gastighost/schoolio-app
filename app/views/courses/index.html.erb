@@ -1,6 +1,21 @@
 <div class="container">
 <h1>Here is a list of courses</h1>
 
+<div class="container-index-search">
+<div class="col-sm-5 search-container">
+<h1>Find a course</h1>
+      <%= form_tag courses_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "ex. Grade 6 Mathematics"
+        %>
+        <%= button_tag type:"submit", class: "button-search" do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+      <% end %>
+    </div>
+
 <%= link_to "Add a new course", new_course_path, class: "nav-link" %>
 
     <% @courses.each do |course| %>
