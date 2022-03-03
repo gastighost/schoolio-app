@@ -1,3 +1,12 @@
 <div class="top-banner">
-*Spaceholder*
+  <strong>Spaceholder</strong>
+  <i class="fa fa-graduation-cap moving-cap"></i>
+  <div>
+    <% if !user_signed_in? %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn-sign-up" %>
+      <%= link_to "Sign In", user_session_path, class: "btn-sign-up" %>
+    <% else %>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn-sign-up" %>
+    <% end %>
+  </div>
 </div>
