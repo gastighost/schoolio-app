@@ -2,7 +2,7 @@
 // my dashboard
 <div class="container mt-4">
 <h1>Your bookings</h1>
-<%= link_to "See all courses", courses_path, class: "btn btn-secondary" %>
+<%= link_to "See all courses", courses_path, class: "button_green" %>
 <% @bookings.each do |booking| %>
 <div class="container my-3 p-2 border">
 <h4><%= booking.lesson.subtopic.course.subject %></h2>
