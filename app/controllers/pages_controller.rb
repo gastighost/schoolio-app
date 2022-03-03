@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def user_index
+    @users = User.where(user_type: params[:query])
+  end
 end

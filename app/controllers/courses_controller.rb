@@ -5,6 +5,12 @@ class CoursesController < ApplicationController
     else
       @courses = Course.all
     end
+    @type = ""
+    if current_user.user_type == "teacher"
+      @type = "student"
+    elsif current_user.user_type == "student"
+      @type = "teacher"
+    end
   end
 
   def show
