@@ -1,1 +1,49 @@
-// Specific CSS for your home-page
+// Specific CSS for your home/landing-page
+
+.banner-home-img {
+  width:100%;
+  background-image: url(https://images.unsplash.com/photo-1596496181871-9681eacf9764?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2972&q=80);
+  height: 250px;
+  background-position: center;
+  background-size: cover;
+}
+
+.banner-home-img h1 {
+  color: #6EBF8B;
+  background-color: #FFD66D;
+  font-weight: bold;
+  font-size: 36px;
+  text-align: center;
+  margin-top: 150px;
+  padding: 5px;
+}
+
+h3 {
+  color: #6EBF8B;
+  font-size: 26px;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+.questionnaire-button {
+  color: #FFD66D;
+  background-color: #6EBF8B;
+  padding: 5px;
+  border-radius: 30%;
+ align-items: center;
+}
+
+h5 {
+  color: #6EBF8B;
+  font-size: 16px;
+  text-align: center;
+}
+
+.questionnaire-part-home {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
