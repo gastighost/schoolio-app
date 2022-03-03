@@ -16,7 +16,10 @@
   </div>
 
   <%= link_to "See your bookings", bookings_path, class: "btn btn-dark" %>
+
+  <% if current_user.user_type == "teacher" %>
   <%= link_to "Add a new course", new_course_path, class: "nav-link" %>
+  <% end %>
 
   <% @courses.each do |course| %>
     <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1453733190371-0a9bedd82893?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2874&q=80')">
@@ -30,11 +33,13 @@
           </ul>
             <div class="card-links">
               <%= link_to "Enter", course_path(course) %>
+              <% if current_user.user_type == "teacher" %>
               <%= link_to 'Edit', edit_course_path(course) %>
               <%= link_to "Delete",
                           course_path(course),
                         method: :delete,
                         data: { confirm: "Are you sure?" } %>
+              <% end %>
             </div>
       </div>
     </div>
