@@ -1,0 +1,26 @@
+
+.card-img ul {
+  list-style-type: none;
+}
+
+.card-img {
+  height: auto;
+  background-position: center;
+  background-size: cover;
+  border-radius: 40px;
+  color: white;
+  padding: 20px;
+  margin-top: 30px;
+  width: 320px;
+  margin-left: 20px;
+}
+
+.card-img a {
+  color: #FFD66D;
+  text-decoration: none;
+}
+
+.card-links {
+  display: flex;
+  justify-content: space-between;
+}
