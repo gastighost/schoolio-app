@@ -1,6 +1,6 @@
 <div class="container mt-4">
-<h1>Users index</h1>
- <%= link_to "Back to courses", courses_path, class: "btn btn-secondary" %>
+<h1><%= params[:query].capitalize %> list</h1>
+ <%= link_to "Back to bookings", bookings_path, class: "btn btn-secondary" %>
 <% @users.each do |user| %>
 <div class="container my-3 p-2 border">
 <h4><%= user.user_type.capitalize %>: <%= user.name %></h4>
