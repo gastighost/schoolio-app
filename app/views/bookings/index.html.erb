@@ -1,21 +1,22 @@
-
-// my dashboard
-<div class="container mt-4">
+<div class="bookings-container">
+<br>
 <h1>Your bookings</h1>
-
+  
 <%= link_to "See all courses", courses_path, class: "button_green" %>
 
 <%= link_to "#{@type.capitalize}s list", user_index_path(query: @type), class: "btn btn-secondary" %>
-
+<br>
+<br>
+  
 <% @bookings.each do |booking| %>
-<div class="container my-3 p-2 border">
-<h4><%= booking.lesson.subtopic.course.subject %></h2>
+<div class="each-booking-container">
+<h4><strong><%= booking.lesson.subtopic.course.subject%></strong></h2>
 <h5><%= booking.lesson.subtopic.course.topic %></h5>
-<h5><%= link_to booking.lesson.subtopic.description, booking_path(booking), class: "text-decoration-none" %></h5>
-<p>Teacher: <%= booking.lesson.subtopic.course.user.name%></p>
+<h5><%= link_to booking.lesson.subtopic.description, booking_path(booking), class: "each-booking-container" %></h5>
+<p><strong>Teacher:</strong> <%= booking.lesson.subtopic.course.user.name%></p>
 <p><%= booking.lesson.date.strftime("%d %B %Y (%A)") %></p>
-<p>Time: <%= booking.lesson.time.strftime("%H:%M") %></p>
-<p>Duration: <%= booking.lesson.duration %> mins</p>
+<p><strong>Time:</strong> <%= booking.lesson.time.strftime("%H:%M") %></p>
+<p><strong>Duration:</strong> <%= booking.lesson.duration %> mins</p>
 <% if current_user.user_type == "student" %>
 <%= link_to "Cancel Booking",
                   booking_path(booking),
