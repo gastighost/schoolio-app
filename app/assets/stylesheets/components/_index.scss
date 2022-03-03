@@ -2,6 +2,7 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+@import "top-banner";
 
 .button-search {
   background-color: transparent;
@@ -36,4 +37,10 @@
   font-size: 21px;
   color: #6EBF8B;
   font-weight: bold;
+}
+
+
+.container_index_links {
+  display: flex;
+  align-items: center;
 }

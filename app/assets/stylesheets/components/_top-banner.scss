@@ -1,14 +1,25 @@
+
 .top-banner {
   background-size: cover;
   background-position: center;
-  height: 100px;
+  height: 70px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 0 16px;
   align-items: center;
-  color: white;
+  color: #6EBF8B;
+  background-color: #FFD66D;
   font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-style: bold;
+}
+
+.btn-sign-up {
+  text-decoration: none;
+  font-size: 16px;
+  color: $base-yellow;
+  font-weight: 700;
+  border: 1px solid $base-green;
+  padding: 4px 8px;
+  border-radius: 10px;
+  background: $base-green;
 }
