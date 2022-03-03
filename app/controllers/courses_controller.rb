@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   def index
+    @title = "All Courses"
     if params[:query].present?
       @courses = Course.search_by_subject_and_topic_and_school_year(params[:query])
     else
@@ -8,14 +9,17 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @title = "Course"
     @course = Course.find(params[:id])
   end
 
   def new
+    @title = "Add Course"
     @course = Course.new
   end
 
   def create
+    @title = "Create Course"
     @course = Course.new(course_params)
     @course.user = current_user
     if @course.save
@@ -26,6 +30,7 @@ class CoursesController < ApplicationController
   end
 
   def edit
+    @title = "Edit Course"
     @course = Course.find(params[:id])
   end
 
@@ -36,6 +41,7 @@ class CoursesController < ApplicationController
   end
 
   def destroy
+    @title = "Delete Course"
     @course = Course.find(params[:id])
     @course.destroy
     redirect_to courses_path
