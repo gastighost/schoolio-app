@@ -1,3 +1,4 @@
+<div class="container">
 <%= simple_form_for [ @course, @subtopic, @lesson ] do |f| %>
   <%= f.input :date %>
   <%= f.input :time %>
@@ -5,3 +6,5 @@
   <%= f.input :max_capacity %>
   <%= f.submit "Edit lesson", class: "btn btn-primary" %>
 <% end %>
+<%= link_to "Return to lesson", course_subtopic_lesson_path(@course, @subtopic, @lesson), class: "btn btn-danger mt-3" %>
+</div>

@@ -1,4 +1,7 @@
+<div class="container mt-4">
 <%= simple_form_for [@course, @subtopic] do |f| %>
   <%= f.input :description %>
   <%= f.submit "Edit subtopic", class: "btn btn-primary" %>
 <% end %>
+<%= link_to "Back to course", course_path(@course), class: "btn btn-danger mt-3" %>
+</div>
