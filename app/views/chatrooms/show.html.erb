@@ -1,8 +1,11 @@
-<div class="container chatroom"
+<div class="each-chatroom-container"
        data-controller="chatroom-subscription"
        data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-    <h1><%= "##{@chatroom.name}" %></h1>
-    <%= link_to 'Back to booking', booking_path(@chatroom.booking), class: "btn btn-secondary" %>
+    <h1><strong><%= "#{@chatroom.name}" %></strong></h1>
+    <br>
+
+    <br>
+    <br>
     <div class="messages" data-chatroom-subscription-target="messages">
       <% @chatroom.messages.each do |message| %>
         <%= render "messages/message", message: message %>
@@ -18,6 +21,13 @@
       placeholder: "Message ##{@chatroom.name}",
       wrapper_html: {class: "d-flex align-items-center flex-grow-1"}
     %>
-    <%= f.submit "Send", class: "button_green_send" %>
+    <br>
+      <br>
+        <br>
+          <br>
+            <br>
+    <%= f.submit "Send", class: "second_button_yellow_move_down" %>
     <% end %>
+    <br>
+               <%= link_to 'Back to booking', booking_path(@chatroom.booking), class: "third_button_yellow_move_down" %>
 </div>
