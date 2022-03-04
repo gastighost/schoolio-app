@@ -2,21 +2,24 @@
 <h1><%= @lesson.subtopic.description %></h1>
 
 <br>
-<h2><%= @lesson.date.strftime("%d %B %Y (%A)") %></h2>
-<p>Time: <%= @lesson.time.strftime("%H:%M") %></p>
-<p>Duration: <%= @lesson.duration %> mins</p>
-<p>Max Capacity: <%= @lesson.max_capacity %></p>
-<% if current_user.user_type == "student" %>
-<%= link_to "Book this lesson", course_subtopic_lesson_bookings_path(lesson_id: params[:id]), method: :post, data: { confirm: "Are you sure you want to book?" }, class: "btn btn-success mb-3" %>
-<% end %>
-<br>
-<%= link_to "Go back to subtopic", course_subtopic_path(@course, @subtopic), class: "btn btn-secondary" %>
-<% if current_user.user_type == "teacher" %>
-<%= link_to 'Edit lesson', edit_course_subtopic_lesson_path(@course, @subtopic, @lesson), class: "btn btn-warning" %>
-<%= link_to "Delete lesson",
-                lesson_path(@lesson),
-                method: :delete,
-                data: { confirm: "Are you sure?" },
-                class: "btn btn-danger" %>
-<% end %>
+<div class="lesson_show_container">
+  <h2><%= @lesson.date.strftime("%d %B %Y (%A)") %></h2>
+  <p>Time: <%= @lesson.time.strftime("%H:%M") %></p>
+  <p>Duration: <%= @lesson.duration %> mins</p>
+  <p>Max Capacity: <%= @lesson.max_capacity %></p>
+  <% if current_user.user_type == "student" %>
+  <%= link_to "Book this lesson", course_subtopic_lesson_bookings_path(lesson_id: params[:id]), method: :post, data: { confirm: "Are you sure you want to book?" }, class: "btn btn-success mb-3" %>
+  <% end %>
+  <br>
+
+  <% if current_user.user_type == "teacher" %>
+  <%= link_to 'Edit', edit_course_subtopic_lesson_path(@course, @subtopic, @lesson), class: "button_green" %>
+  <%= link_to "Delete",
+                  lesson_path(@lesson),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" },
+                  class: "button_green" %>
+  <% end %>
+  <%= link_to "Back to subtopic", course_subtopic_path(@course, @subtopic), class: "button_green" %>
+  </div>
 </div>

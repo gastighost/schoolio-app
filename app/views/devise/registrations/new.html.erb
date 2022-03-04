@@ -42,10 +42,8 @@
                   input_html: { autocomplete: "Are you a student or a teacher?" } %>
     </div>
 
-    <div class="button_green_login">
-      <%= f.button :submit, "Sign up" %>
-    </div>
+
+      <%= f.button :submit, "Sign up", class:"button_green_login", id:"center" %>
+
   <% end %>
 </div>
-
-<%= render "devise/shared/links" %>
