@@ -1,40 +1,48 @@
-<div class="container mt-4">
-<h1>Subject: <%= @booking.lesson.subtopic.course.subject %></h1>
+<br>
+<div class="each-booking-container">
+<h1><strong>Subject: <%= @booking.lesson.subtopic.course.subject%></strong></h1>
 <h3>Topic: <%= @booking.lesson.subtopic.course.topic %></h3>
 <h3>Subtopic: <%= @booking.lesson.subtopic.description %></h3>
-
+<br>
 <div class="container">
-<h1>LETS PUT THE VIDEO HERE</h1>
+<h4>Insert link to video call, here!</h3>
 </div>
+<img src="https://www.technology.pitt.edu/sites/default/files/blog-images/ZoomMeeting.png" alt="zoom" class="image1">
+<br>
+<br>
 <% if @booking.chatrooms.length > 0 %>
-<%= link_to "Enter chat", chatroom_path(@booking.chatrooms[0]), class: "btn btn-success mb-3" %>
+<%= link_to "Enter chat", chatroom_path(@booking.chatrooms[0]), class: "button_yellow_move_down" %>
+<br>
 <% else %>
-<%= link_to "Start a chat", chatrooms_path(booking_id: params[:id]), method: :post, class: "btn btn-success mb-3" %>
+<%= link_to "Start a chat", chatrooms_path(booking_id: params[:id]), method: :post, class: "button_yellow_move_down" %>
 <% end %>
-
+<br>
 <% if current_user.user_type == "student" %>
 <%= link_to "Cancel Booking",
                   booking_path(@booking),
                   method: :delete,
-                  data: { confirm: "Are you sure?" } %>
-
+                  data: { confirm: "Are you sure?" },
+                  class: "button_yellow_move_down" %>
 <br>
-<%= link_to "Leave a review", new_booking_review_path(@booking) %>
+<br>
+<%= link_to "Leave a review", new_booking_review_path(@booking), class: "button_yellow_move_down" %>
 <% if @booking.reviews.length > 0 %>
 <h4>Your review</h4>
 <%@booking.reviews.each do |review|%>
 <div class="container border p-2">
 <p>Rating: <%= review.rating %></p>
 <p>Comment: <%= review.comment %></p>
-<%= link_to 'Edit Review', edit_booking_review_path(@booking, review) %>
+<%= link_to 'Edit Review', edit_booking_review_path(@booking, review), class: "button_yellow_move_down" %>
 <%= link_to "Delete Review",
                   review_path(review),
                   method: :delete,
-                  data: { confirm: "Are you sure?" } %>
+                  data: { confirm: "Are you sure?" },
+                  class: "button_yellow_move_down" %>
 </div>
 <% end %>
 <% end %>
 <% end %>
 <br>
-<%= link_to 'All Bookings', bookings_path %>
+<br>
+<%= link_to 'All Bookings', bookings_path, class: "button_yellow_move_down" %>
 </div>
