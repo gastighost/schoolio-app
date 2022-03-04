@@ -5,7 +5,8 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    @chatroom = Chatroom.new(booking_id: params[:booking_id], name: current_user.name)
+    @booking = Booking.find(params[:booking_id])
+    @chatroom = Chatroom.new(booking_id: @booking.id, name: @booking.lesson.subtopic.description)
     @chatroom.save
     redirect_to chatroom_path(@chatroom)
   end

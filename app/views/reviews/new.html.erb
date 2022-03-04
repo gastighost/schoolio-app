@@ -2,31 +2,12 @@
 <br>
 <div class>
 <p>Now it is your time to be critical and to leave a few comments on todays lesson. Your input will be used to improve our services!</p>
-<p>How satisfied were you with the teaching style?</p>
+<p>How was the lesson?</p>
 <%= simple_form_for [ @booking, @review ], html: {class: "review-form"} do |f| %>
-<input type="checkbox" id="vehicle3" name="vehicle3" value="Teacher" class="large-checkbox">
-  <label for="vehicle3">1</label>
-  <input type="checkbox" id="vehicle3" name="vehicle3" value="Teacher">
-  <label for="vehicle3">2</label>
-  <input type="checkbox" id="vehicle3" name="vehicle3" value="Teacher">
-  <label for="vehicle3">3</label>
-  <input type="checkbox" id="vehicle3" name="vehicle3" value="Teacher">
-  <label for="vehicle3">4</label>
-  <input type="checkbox" id="vehicle3" name="vehicle3" value="Teacher">
-  <label for="vehicle3">5</label>
-  <br>
-  <br>
-  <p>How satisfied were you with the content?</p>
-<input type="checkbox" id="vehicle2" name="vehicle2" value="Content">
-  <label for="vehicle3">1</label>
-  <input type="checkbox" id="vehicle2" name="vehicle2" value="Content">
-  <label for="vehicle3">2</label>
-  <input type="checkbox" id="vehicle2" name="vehicle2" value="Content">
-  <label for="vehicle3">3</label>
-  <input type="checkbox" id="vehicle2" name="vehicle2" value="Content">
-  <label for="vehicle3">4</label>
-  <input type="checkbox" id="vehicle2" name="vehicle2" value="Content">
-  <label for="vehicle3">5</label>
+
+  <div class="d-flex justify-content-center">
+    <%= f.collection_radio_buttons :rating, [[1, "1"], [2, "2"], [3, "3"], [4, "4"], [5, "5"]], :first, :last %>
+  </div>
   <br>
   <br>
   <%= f.input :comment %>
