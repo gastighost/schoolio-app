@@ -14,22 +14,28 @@
 <div class="list_links_course_subtopics">
   <h3>Course Subtopics</h3>
   <% if current_user.user_type == "teacher" %>
-  <%= link_to "Add a subtopic", new_course_subtopic_path(@course), class: "btn btn-primary" %>
+  <%= link_to "Add a subtopic", new_course_subtopic_path(@course), class: "button_yellow" %>
   <% end %>
   <% @course.subtopics.each do |subtopic| %>
+  <br>
+
   <div class="button_list_grey">
-  <h4><%= link_to subtopic.description, course_subtopic_path(@course, subtopic), class: "text-decoration-none" %></h4>
-  <% if current_user.user_type == "teacher" %>
-  <%= link_to 'Edit', edit_course_subtopic_path(@course, subtopic), class: "button_list_grey" %>
-  <%= link_to "Delete Subtopic",
-                  subtopic_path(subtopic),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" },
-                  class: "btn btn-danger" %>
-  <% end %>
+    <h4><%= link_to subtopic.description, course_subtopic_path(@course, subtopic), class: "text-decoration-none" %></h4>
+    <div class="buttons">
+    <% if current_user.user_type == "teacher" %>
+    <%= link_to 'Edit', edit_course_subtopic_path(@course, subtopic), class: "button_green" %>
+    <%= link_to "Delete",
+                    subtopic_path(subtopic),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" },
+                    class: "button_green" %>
+    <% end %>
+    </div>
+    </div>
+    <% end %>
+
+    <br>
   </div>
-  <% end %>
-</div>
 </div>
 
 <br>

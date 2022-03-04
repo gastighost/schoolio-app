@@ -1,17 +1,20 @@
 class LessonsController < ApplicationController
   def show
+    @title = "Lesson"
     @course = Course.find(params[:course_id])
     @subtopic = Subtopic.find(params[:subtopic_id])
     @lesson = Lesson.find(params[:id])
   end
 
   def new
+    @title = "Create Lesson"
     @course = Course.find(params[:course_id])
     @subtopic = Subtopic.find(params[:subtopic_id])
     @lesson = Lesson.new
   end
 
   def create
+    @title = "Create Lesson"
     @lesson = Lesson.new(lesson_params)
     @course = Course.find(params[:course_id])
     @subtopic = Subtopic.find(params[:subtopic_id])
@@ -24,12 +27,14 @@ class LessonsController < ApplicationController
   end
 
   def edit
+    @title = "Edit Lesson"
     @course = Course.find(params[:course_id])
     @subtopic = Subtopic.find(params[:subtopic_id])
     @lesson = Lesson.find(params[:id])
   end
 
   def update
+    @title = "Update Lesson"
     @course = Course.find(params[:course_id])
     @lesson = Lesson.find(params[:id])
     @subtopic = @lesson.subtopic
@@ -38,6 +43,7 @@ class LessonsController < ApplicationController
   end
 
   def destroy
+    @title = "Delete Lesson"
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
     redirect_to course_subtopic_path(@lesson.subtopic.course, @lesson.subtopic)

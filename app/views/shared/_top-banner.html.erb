@@ -1,5 +1,5 @@
 <div class="top-banner">
-  <strong><%=@title ? @title : "placeholder"%></strong>
+  <strong><%=@title ? @title : " "%></strong>
   <div>
     <% if !user_signed_in? %>
       <%= link_to "Sign Up", new_user_registration_path, class: "btn-sign-up" %>

@@ -6,6 +6,8 @@
   padding: 10px;
   margin: 10px;
   margin-left: 110px;
+  text-align: center;
+  border: none;
 }
 
 
@@ -17,6 +19,7 @@
   padding: 10px;
   margin: 10px;
   margin-left: 110px;
+  border: none;
 }
 
 .button_list_grey {
@@ -24,4 +27,8 @@
   text-decoration: none;
   font-size: 16;
   color: #6EBF8B;
+}
+
+#center {
+  margin: auto;
 }
