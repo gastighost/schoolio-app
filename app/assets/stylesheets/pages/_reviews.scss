@@ -1,10 +1,15 @@
 .container-reviews {
-  width: 85%;
-  margin: auto;
-}
+    border-radius: 10px;
+    border: 20px;
+    background-color: #6EBF8B;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+  }
 
-.reviews-container p {
-  font-size: 40px;
+.container-reviews p {
+  font-size: 18px;
 }
 
 input[type=checkbox]+i {
@@ -27,4 +32,14 @@ input[type=checkbox]+i {
   margin: 10px;
   margin: auto;
   border: none !important;
+}
+
+.padding-for-review {
+  border-radius: 10px;
+  border: 20px;
+  background-color: #FFD66D;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin: 20px;
 }

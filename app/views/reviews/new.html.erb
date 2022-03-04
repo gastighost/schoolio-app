@@ -1,7 +1,7 @@
 <div class="container-reviews">
-<br>
 <div class>
 <p>Now it is your time to be critical and to leave a few comments on todays lesson. Your input will be used to improve our services!</p>
+<br>
 <p>How was the lesson?</p>
 <%= simple_form_for [ @booking, @review ], html: {class: "review-form"} do |f| %>
 
@@ -12,11 +12,11 @@
   <br>
   <%= f.input :comment %>
   <div class="d-flex justify-content-center">
-    <%= f.submit "Add review", class: "first_button_green_move_down" %>
+    <%= f.submit "Add review", class: "button_yellow_move_down" %>
   </div>
   <br>
 <% end %>
   <div class="d-flex justify-content-center">
-    <%= link_to 'Back to booking', booking_path(@booking), class: "first_button_green_move_down" %>
+    <%= link_to 'Back to booking', booking_path(@booking), class: "button_yellow_move_down" %>
   </div>
 </div>

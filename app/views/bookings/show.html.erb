@@ -26,23 +26,25 @@
 <br>
 <br>
 <%= link_to "Leave a review", new_booking_review_path(@booking), class: "button_yellow_move_down" %>
+<br>
+<br>
 <% if @booking.reviews.length > 0 %>
 <h4>Your review</h4>
 <%@booking.reviews.each do |review|%>
-<div class="container border p-2">
+<div class="padding-for-review">
 <p>Rating: <%= review.rating %></p>
 <p>Comment: <%= review.comment %></p>
-<%= link_to 'Edit Review', edit_booking_review_path(@booking, review), class: "button_yellow_move_down" %>
+<%= link_to 'Edit Review', edit_booking_review_path(@booking, review), class: "button_green_move_down" %>
+<br>
+<br>
 <%= link_to "Delete Review",
                   review_path(review),
                   method: :delete,
                   data: { confirm: "Are you sure?" },
-                  class: "button_yellow_move_down" %>
+                  class: "button_green_move_down" %>
 </div>
 <% end %>
 <% end %>
 <% end %>
-<br>
-<br>
 <%= link_to 'All Bookings', bookings_path, class: "button_yellow_move_down" %>
 </div>
