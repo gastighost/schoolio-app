@@ -2,10 +2,10 @@
 
 <%= link_to "See all courses", courses_path, class: "button_green" %>
 
-<%= link_to "#{@type.capitalize}s list", user_index_path(query: @type), class: "btn btn-secondary" %>
+<%= link_to "#{@type.capitalize} profiles", user_index_path(query: @type), class: "btn btn-secondary" %>
 <br>
 <br>
-  
+
 <% @bookings.each do |booking| %>
 <div class="each-booking-container">
 <h4><strong><%= booking.lesson.subtopic.course.subject%></strong></h2>
