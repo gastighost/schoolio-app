@@ -15,6 +15,7 @@
 <br>
 <% else %>
 <%= link_to "Start a chat", chatrooms_path(booking_id: params[:id]), method: :post, class: "button_yellow_move_down" %>
+<br>
 <% end %>
 <br>
 <% if current_user.user_type == "student" %>
