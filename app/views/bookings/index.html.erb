@@ -1,4 +1,7 @@
 <div class="bookings-container">
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
 <% @bookings.each do |booking| %>
 <div class="each-booking-container">
 <h4><strong><%= booking.lesson.subtopic.course.subject%></strong></h2>

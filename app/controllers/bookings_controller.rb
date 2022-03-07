@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(lesson_id: params[:lesson_id], user_id: current_user.id)
     @booking.save
     redirect_to bookings_path
+    flash[:notice] = "Booking for #{@booking.lesson.subtopic.description} confirmed!"
   end
 
   def destroy
