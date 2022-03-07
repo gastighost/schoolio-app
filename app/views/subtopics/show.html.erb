@@ -33,14 +33,11 @@
       <% end %>
 <% end %>
 <% @subtopic.lessons.each do |lesson| %>
-<div class="container my-3 border p-2">
-<h3><%= link_to lesson.date.strftime("%d %B %Y (%A)"), course_subtopic_lesson_path(@course, @subtopic, lesson), class: "text-decoration-none" %></h3>
+<p><%= link_to lesson.date.strftime("%d %B %Y (%A)"), course_subtopic_lesson_path(@course, @subtopic, lesson)%></p>
 <p>Time: <%= lesson.time.strftime("%H:%M") %></p>
 <p>Duration: <%= lesson.duration %> mins</p>
 <p>Max Capacity: <%= lesson.max_capacity %></p>
-</div>
 <% end %>
-
 
 
 <br>

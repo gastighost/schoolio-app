@@ -11,6 +11,25 @@ class CoursesController < ApplicationController
   def show
     @title = "Course"
     @course = Course.find(params[:id])
+    @subtopics = @course.subtopics
+    @lessons = []
+    @subtopics.each do |subtopic|
+      subtopic.lessons.each do |lesson|
+        @lessons.push(lesson)
+      end
+    end
+    @bookings = []
+    @lessons.each do |lesson|
+      lesson.bookings.each do |booking|
+        @bookings.push(booking)
+      end
+    end
+    @reviews = []
+    @bookings.each do |booking|
+      booking.reviews.each do |review|
+        @reviews.push(review)
+      end
+    end
   end
 
   def new
