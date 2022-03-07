@@ -7,6 +7,7 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import Chart from 'chart.js/auto'
 
 Rails.start()
 Turbolinks.start()
@@ -14,3 +15,19 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+
+document.addEventListener('turbolinks:load', () => {
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: JSON.parse(ctx.canvas.dataset.labels),
+    datasets: [{
+      label: 'Performance Level',
+      borderColor: 'rgb(75, 192, 192)',
+      backgroundColor: 'rgb(75, 192, 192)',
+      data: JSON.parse(ctx.canvas.dataset.data),
+    }]
+  },
+  });
+})
