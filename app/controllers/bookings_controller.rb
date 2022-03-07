@@ -8,6 +8,9 @@ class BookingsController < ApplicationController
     elsif current_user.user_type == "student"
       @type = "teacher"
     end
+
+    @data_keys = @bookings.map { |booking| booking.lesson.date.strftime("%d %B %Y") }
+    @data_values = @bookings.map { |booking| booking.performance_level }
   end
 
   def show
