@@ -1,9 +1,7 @@
 <div class="container">
-<h1>Here is a list of courses</h1>
-
-<div class="container-index-search">
-<div class="col-sm-5 search-container">
-<h1>Find a course</h1>
+  <div class="container-index-search">
+    <div class="col-sm-5 search-container">
+      <h1>Find a course</h1>
       <%= form_tag courses_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
@@ -15,13 +13,19 @@
         <% end %>
       <% end %>
     </div>
+  </div>
 
-<%= link_to "Add a new course", new_course_path, class: "nav-link" %>
 
-    <% @courses.each do |course| %>
+  <%= link_to "All bookings", bookings_path, class: "button_green" %>
 
-      <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1453733190371-0a9bedd82893?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2874&q=80')">
-        <div>
+  <% if current_user.user_type == "teacher" %>
+  <%= link_to "Add a new course", new_course_path, class: "button_green" %>
+  <% end %>
+
+
+  <% @courses.each do |course| %>
+    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1453733190371-0a9bedd82893?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2874&q=80')">
+      <div>
           <h1><strong><%= course.subject %></strong></h1>
           <ul>
             <li><%= course.topic %></li>
@@ -31,13 +35,15 @@
           </ul>
             <div class="card-links">
               <%= link_to "Enter", course_path(course) %>
+              <% if current_user.user_type == "teacher" %>
               <%= link_to 'Edit', edit_course_path(course) %>
               <%= link_to "Delete",
                           course_path(course),
                         method: :delete,
                         data: { confirm: "Are you sure?" } %>
+              <% end %>
             </div>
-        </div>
       </div>
-    <% end %>
+    </div>
+  <% end %>
 </div>

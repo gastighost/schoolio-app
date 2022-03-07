@@ -1,7 +1,22 @@
-<div class="container">
-<%= simple_form_for [ @booking, @review ] do |f| %>
-  <%= f.input :rating %>
+<div class="container-reviews">
+<div class>
+<p>Now it is your time to be critical and to leave a few comments on todays lesson. Your input will be used to improve our services!</p>
+<br>
+<p>How was the lesson?</p>
+<%= simple_form_for [ @booking, @review ], html: {class: "review-form"} do |f| %>
+
+  <div class="d-flex justify-content-center">
+    <%= f.collection_radio_buttons :rating, [[1, "1"], [2, "2"], [3, "3"], [4, "4"], [5, "5"]], :first, :last %>
+  </div>
+  <br>
+  <br>
   <%= f.input :comment %>
-  <%= f.submit "Add review", class: "btn btn-primary" %>
+  <div class="d-flex justify-content-center">
+    <%= f.submit "Add review", class: "button_yellow_move_down" %>
+  </div>
+  <br>
 <% end %>
+  <div class="d-flex justify-content-center">
+    <%= link_to 'Back to booking', booking_path(@booking), class: "button_yellow_move_down" %>
+  </div>
 </div>

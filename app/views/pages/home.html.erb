@@ -1,36 +1,45 @@
-<%= link_to 'See courses here', courses_path %>
+<div class="banner-home-img">
+  <img class="banner-img-landingscreen" style= "background-image: url('https://images.unsplash.com/photo-1596496181871-9681eacf9764?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2972&q=80')">
 
- <body>
-    <div class="navbar navbar-expand-sm navbar-light space-between">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/LetterS.svg/800px-LetterS.svg.png" width="10" />
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  <h1>Welcome to Schoolio</h1>
+</div>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto">
-              <li class="nav-item active">
-                <%= link_to "Home", root_path,class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <% if !user_signed_in? %>
-                <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <% if user_signed_in? %>
-                <%= link_to "Sign Out",  destroy_user_session_path, method: :delete, class: "nav-link"%>
-                <% else %>
-                <%= link_to "Sign In", user_session_path, class: "nav-link" %>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-      </div>
+  <br>
+    <h3> Your nr.1 learning platform</h3>
+
+  <p><strong>Improve your grades</strong> having fun with your <strong>personalized</strong> learning path and great teachers who personally <strong>care for you</strong></p>
+
+
+<div class="container">
+
+  <div class="container-index-search">
+    <div class="col-sm-5 search-container">
+      <h1>Find a course</h1>
+      <%= form_tag courses_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "ex. Grade 6 Mathematics"
+        %>
+        <%= button_tag type:"submit", class: "button-search" do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+        <%= link_to 'See all', courses_path, class: "courses-link"%>
+      <% end %>
     </div>
-    <%= yield %>
-    <%= render 'shared/flashes' %>
-  </body>
+  </div>
+
+<br>
+<br>
+<div class="questionnaire-part-home">
+  <h5>Fill in your personalized learning journey:</h5>
+  <%= link_to bookings_path do %>
+      <svg class="questionnaire-button" xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3.854 2.146a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 3.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 7.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+      </svg>
+      <%end%>
+</div>
+
+
+<%= yield %>
+<%= render 'shared/flashes' %>

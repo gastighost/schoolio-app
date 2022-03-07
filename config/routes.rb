@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get 'user_index', to: 'pages#user_index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :courses do
     resources :subtopics, only: [:show, :new, :create, :edit, :update ] do
@@ -15,4 +16,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create, :edit, :update]
   end
   resources :reviews, only: :destroy
+  resources :chatrooms, only: [:show, :create] do
+    resources :messages, only: :create
+  end
 end

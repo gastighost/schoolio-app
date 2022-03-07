@@ -1,23 +1,33 @@
-<div class="container">
-<h1>Your subtopic</h1>
+<div class="container_subtopic_show">
 
 <br>
 <h2><%= @subtopic.description %></h2>
-<%= link_to "Go back to course", course_path(@course) %>
-<%= link_to 'Edit subtopic', edit_course_subtopic_path(@course, @subtopic) %>
+
+<% if current_user.user_type == "teacher" %>
+<%= link_to 'Edit subtopic', edit_course_subtopic_path(@course, @subtopic), class: "button_green" %>
 <%= link_to "Delete subtopic",
                 subtopic_path(@subtopic),
                 method: :delete,
-                data: { confirm: "Are you sure?" } %>
+                data: { confirm: "Are you sure?" },
+                class: "button_green" %>
+<% end %>
 
-<h2>Lessons</h2>
-<%= link_to "Add a lesson", new_course_subtopic_lesson_path(@course, @subtopic) %>
+<br>
+<h2>Lesson Schedule</h2>
+<% if current_user.user_type == "teacher" %>
+<%= link_to "Add a lesson", new_course_subtopic_lesson_path(@course, @subtopic), class: "button_green" %>
+<% end %>
 <% @subtopic.lessons.each do |lesson| %>
-<div class="container my-3">
-<h3><%= link_to lesson.date, course_subtopic_lesson_path(@course, @subtopic, lesson) %></h3>
-<p>Time: <%= lesson.time %></p>
-<p>Duration (min): <%= lesson.duration %></p>
+<div class="container my-3 border p-2">
+<h3><%= link_to lesson.date.strftime("%d %B %Y (%A)"), course_subtopic_lesson_path(@course, @subtopic, lesson), class: "text-decoration-none" %></h3>
+<p>Time: <%= lesson.time.strftime("%H:%M") %></p>
+<p>Duration: <%= lesson.duration %> mins</p>
 <p>Max Capacity: <%= lesson.max_capacity %></p>
 </div>
 <% end %>
 </div>
+
+
+<br>
+<br>
+<%= link_to "Go back to course", course_path(@course), class: "button_green" %>

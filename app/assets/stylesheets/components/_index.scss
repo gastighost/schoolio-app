@@ -2,6 +2,8 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+@import "top-banner";
+@import "chatroom";
 
 .button-search {
   background-color: transparent;
@@ -34,6 +36,17 @@
 
 .search-container h1{
   font-size: 21px;
-  color: #58AF14;
+  color: #6EBF8B;
   font-weight: bold;
+}
+
+
+.container_index_links {
+  display: flex;
+  align-items: center;
+}
+
+.simple_form {
+  display: flex;
+  flex-direction: column;
 }

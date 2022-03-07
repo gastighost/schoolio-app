@@ -1,15 +1,18 @@
 class SubtopicsController < ApplicationController
   def show
+    @title = "Your Subtopic"
     @course = Course.find(params[:course_id])
     @subtopic = Subtopic.find(params[:id])
   end
 
   def new
+    @title = "Add Subtopic"
     @course = Course.find(params[:course_id])
     @subtopic = Subtopic.new
   end
 
   def create
+    @title = "Create Subtopic"
     @subtopic = Subtopic.new(subtopic_params)
     @course = Course.find(params[:course_id])
     @subtopic.course = @course
@@ -21,11 +24,13 @@ class SubtopicsController < ApplicationController
   end
 
   def edit
+    @title = "Change Subtopic"
     @course = Course.find(params[:course_id])
     @subtopic = Subtopic.find(params[:id])
   end
 
   def update
+    @title = "Update Subtopic"
     @subtopic = Subtopic.find(params[:id])
     @course = @subtopic.course
     @subtopic.update(subtopic_params)
@@ -33,6 +38,7 @@ class SubtopicsController < ApplicationController
   end
 
   def destroy
+    @title = "Delete Subtopic"
     @subtopic = Subtopic.find(params[:id])
     @subtopic.destroy
     redirect_to course_path(@subtopic.course)
