@@ -1,8 +1,9 @@
-<div class="each-booking-container">
-<h1><%= params[:query].capitalize %> list</h1>
+<div class="container mt-4">
+
+
 <% @users.each do |user| %>
-<h4><%= user.user_type.capitalize %>: <%= user.name %></h4>
-<br>
+<div class="container my-3 p-2 border">
+<h3><%= user.user_type.capitalize %>: <%= user.name %></h3>
 <p>Description: <%= user.description %></p>
 <p>Age: <%= user.age %></p>
 <p>School Year: <%= user.school_year %></p>
@@ -12,3 +13,9 @@
 <% end %>
 <%= link_to "Back to bookings", bookings_path, class: "button_yellow_move_down" %>
 </div>
+
+ <%= link_to bookings_path  do %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon_green_back" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+        </svg>
+    <% end %>
