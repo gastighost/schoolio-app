@@ -1,7 +1,5 @@
-<div class="container_subtopic_show">
-
-<br>
-<h2><%= @subtopic.description %></h2>
+<div class="each-booking-container">
+<h1><%= @subtopic.description %></h1>
 
 <% if current_user.user_type == "teacher" %>
 <%= link_to 'Edit subtopic', edit_course_subtopic_path(@course, @subtopic), class: "button_green" %>
@@ -18,16 +16,11 @@
 <%= link_to "Add a lesson", new_course_subtopic_lesson_path(@course, @subtopic), class: "button_green" %>
 <% end %>
 <% @subtopic.lessons.each do |lesson| %>
-<div class="container my-3 border p-2">
-<h3><%= link_to lesson.date.strftime("%d %B %Y (%A)"), course_subtopic_lesson_path(@course, @subtopic, lesson), class: "text-decoration-none" %></h3>
+<p><%= link_to lesson.date.strftime("%d %B %Y (%A)"), course_subtopic_lesson_path(@course, @subtopic, lesson)%></p>
 <p>Time: <%= lesson.time.strftime("%H:%M") %></p>
 <p>Duration: <%= lesson.duration %> mins</p>
 <p>Max Capacity: <%= lesson.max_capacity %></p>
-</div>
 <% end %>
 </div>
 
-
-<br>
-<br>
 <%= link_to "Go back to course", course_path(@course), class: "button_green" %>
