@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
       @type = "teacher"
     end
 
-    @data_keys1 = @bookings.map { |booking| booking.lesson.date.strftime("%d %B %Y") }
+    @data_keys1 = @bookings.map { |booking| booking.lesson.date.strftime("%d.%m.%Y") }
     @data_values1 = @bookings.map { |booking| booking.performance_level.nil? ? booking.performance_level = 0 : booking.performance_level }
 
     @complete = []
