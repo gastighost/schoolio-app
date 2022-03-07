@@ -3,6 +3,7 @@
   flex-direction: column;
 }
 
+
 .special_button_green {
   text-align: center;
   background-color: #FFD66D;
@@ -13,4 +14,10 @@
   margin: 10px;
   margin: auto;
   border: none !important;;
+}
+
+.links_container_lesson {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }

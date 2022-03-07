@@ -31,3 +31,93 @@
 #center {
   margin: auto;
 }
+
+
+.plus_icon {
+  background-color: #FFD66D;
+  text-decoration: none;
+  fill: $base-green;
+  padding: 10px;
+  border-radius: 50%;
+  height: 50px;
+}
+
+.icon_green {
+  background-color: $base-green;
+  text-decoration: none;
+  fill: #FFD66D;
+  padding: 10px;
+  border-radius: 30%;
+  height: 40px;
+  margin: 5px;
+}
+
+.icon_green_back {
+  background-color: $base-green;
+  text-decoration: none;
+  fill: #FFD66D;
+  padding: 10px;
+  border-radius: 30%;
+  height: 40px;
+  margin: 5px;
+}
+
+.icon_green_delete {
+  background-color: $base-green;
+  text-decoration: none;
+  fill: #FFD66D;
+  padding: 10px;
+  border-radius: 30%;
+  height: 40px;
+  margin: 5px;
+}
+
+.cancel_minus_icon {
+  background-color: $base-green;
+  text-decoration: none;
+  fill: #FFD66D;
+  padding: 10px;
+  border-radius: 30%;
+  height: 40px;
+  margin: 5px;
+}
+
+.edit_icon {
+  background-color: $base-green;
+  text-decoration: none;
+  fill: #FFD66D;
+  padding: 10px;
+  border-radius: 30%;
+  height: 40px;
+  margin: 5px;
+}
+
+.save_icon {
+  background-color: $base-green;
+  text-decoration: none;
+  fill: #FFD66D;
+  padding: 10px;
+  border-radius: 30%;
+  height: 40px;
+  margin: 5px;
+}
+
+.chat_icon {
+  background-color: $base-green;
+  text-decoration: none;
+  fill: #FFD66D;
+  padding: 10px;
+  border-radius: 30%;
+  height: 40px;
+  margin: 5px;
+}
+
+.each-booking-container .chat_icon {
+  background-color: #FFD66D;
+  fill: $base-green;
+}
+
+.each-booking-container .icon_green_back {
+  background-color: #FFD66D;
+  fill: $base-green;
+}

@@ -1,51 +1,113 @@
-<br>
+<head>
+  <script src='https://8x8.vc/external_api.js' async></script>
+  <style>html, body, #jaas-container { height: 830px; }</style>
+  <script type="text/javascript">
+    window.onload = () => {
+      const api = new JitsiMeetExternalAPI("8x8.vc", {
+        roomName: "vpaas-magic-cookie-0f1a60b28c14458babb38917a68033dc/Schoolio",
+        parentNode: document.querySelector('#jaas-container')
+      });
+    }
+  </script>
+</head>
+
 <div class="each-booking-container">
-<h1><strong>Subject: <%= @booking.lesson.subtopic.course.subject%></strong></h1>
-<h3>Topic: <%= @booking.lesson.subtopic.course.topic %></h3>
-<h3>Subtopic: <%= @booking.lesson.subtopic.description %></h3>
-<br>
-<div class="container">
-<h4>Insert link to video call, here!</h3>
+  <h1><strong>Subject: <%= @booking.lesson.subtopic.course.subject%></strong></h1>
+  <h3>Topic: <%= @booking.lesson.subtopic.course.topic %></h3>
+  <h3>Subtopic: <%= @booking.lesson.subtopic.description %></h3>
+  <br>
+  <!-- Button trigger modal -->
+  <button type="button" class="button_yellow_move_down" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Enter virtual classroom!
+  </button>
+  <br>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="jaas-container"></div>
+      </div>
+    </div>
+  </div>
 </div>
-<img src="https://www.technology.pitt.edu/sites/default/files/blog-images/ZoomMeeting.png" alt="zoom" class="image1">
+
 <br>
 <br>
-<% if @booking.chatrooms.length > 0 %>
-<%= link_to "Enter chat", chatroom_path(@booking.chatrooms[0]), class: "button_yellow_move_down" %>
-<br>
-<% else %>
-<%= link_to "Start a chat", chatrooms_path(booking_id: params[:id]), method: :post, class: "button_yellow_move_down" %>
-<br>
-<% end %>
-<br>
-<% if current_user.user_type == "student" %>
-<%= link_to "Cancel Booking",
-                  booking_path(@booking),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" },
-                  class: "button_yellow_move_down" %>
-<br>
-<br>
-<%= link_to "Leave a review", new_booking_review_path(@booking), class: "button_yellow_move_down" %>
-<br>
-<br>
-<% if @booking.reviews.length > 0 %>
-<h4>Your review</h4>
-<%@booking.reviews.each do |review|%>
-<div class="padding-for-review">
-<p>Rating: <%= review.rating %></p>
-<p>Comment: <%= review.comment %></p>
-<%= link_to 'Edit Review', edit_booking_review_path(@booking, review), class: "button_green_move_down" %>
-<br>
-<br>
-<%= link_to "Delete Review",
-                  review_path(review),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" },
-                  class: "button_green_move_down" %>
-</div>
-<% end %>
-<% end %>
-<% end %>
-<%= link_to 'All Bookings', bookings_path, class: "button_yellow_move_down" %>
-</div>
+
+
+<div class="links_chatroom">
+  <% if @booking.chatrooms.length > 0 %>
+  <%= link_to "Enter chat", chatroom_path(@booking.chatrooms[0]), class: "button_yellow_move_down" %>
+  <br>
+  <% else %>
+  <%= link_to chatrooms_path(booking_id: params[:id]), method: :post do %>
+                    <svg xmlns="http://www.w3.org/2000/svg"  class="chat_icon" viewBox="0 0 16 16">
+                      <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                      <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                    <% end %>
+  <br>
+  <% end %>
+  <br>
+  <% if current_user.user_type == "student" %>
+  <%= link_to booking_path(@booking),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } do %>
+                  <svg xmlns="http://www.w3.org/2000/svg"  class="cancel_minus_icon" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                        <% end %>
+
+  <br>
+  <br>
+  <%= link_to "Leave a review", new_booking_review_path(@booking), class: "button_yellow_move_down" %>
+  <br>
+  <br>
+  <% if @booking.reviews.length > 0 %>
+  <h4>Your review</h4>
+  <%@booking.reviews.each do |review|%>
+  <div class="padding-for-review">
+  <p>Rating: <%= review.rating %></p>
+  <p>Comment: <%= review.comment %></p>
+  <%= link_to edit_booking_review_path(@booking, review) do %>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="edit_icon" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                  </svg>
+                    <% end %>
+  <br>
+  <br>
+  <%= link_to "Delete Review",
+                    review_path(review),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" },
+                    class: "button_green_move_down" %>
+  </div>
+  <% end %>
+  <% end %>
+  <% end %>
+  <% if current_user.user_type == "teacher" %>
+  <%= link_to "Rate student", edit_booking_path(@booking), class: "button_yellow_move_down" %>
+  <% if @booking.performance_level.present? %>
+    <br>
+    <br>
+    <h4>Student's Performance</h4>
+    <p>Performance Level: <%= @booking.performance_level %></p>
+  <% end %>
+  <% end %>
+  <br>
+  <br>
+  
+  <%= link_to bookings_path  do %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon_green_back" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+        </svg>
+    <% end %>
+  </div>

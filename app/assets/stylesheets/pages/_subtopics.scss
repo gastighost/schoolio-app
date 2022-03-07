@@ -9,7 +9,17 @@ margin-top: 40px;
 .container_subtopic_show {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.container_subtopic_show a {
+  text-align: right;
+}
+
+.subtopic_icon_arrange {
+  display: flex;
+  flex-direction: row;
 }
 
 .each-booking-container h2 {

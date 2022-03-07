@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   resources :subtopics, only: :destroy
   resources :lessons, only: :destroy
-  resources :bookings, only: [:index, :show, :destroy] do
+  resources :bookings, only: [:index, :show, :edit, :update, :destroy] do
     resources :reviews, only: [:new, :create, :edit, :update]
   end
   resources :reviews, only: :destroy
