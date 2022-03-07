@@ -62,3 +62,13 @@
   margin: auto;
   border: none !important;
 }
+
+.each-chatroom-container .icon_green_back {
+  background-color: #FFD66D;
+  fill: $base-green;
+}
+
+.chatroom_links {
+  display: flex;
+  flex-direction: row;
+}

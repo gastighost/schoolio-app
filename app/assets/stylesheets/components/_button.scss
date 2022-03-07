@@ -121,3 +121,23 @@
   background-color: #FFD66D;
   fill: $base-green;
 }
+
+.review_icon {
+  background-color: $base-green;
+  text-decoration: none;
+  fill: #FFD66D;
+  padding: 10px;
+  border-radius: 30%;
+  height: 40px;
+  margin: 5px;
+}
+
+.each-booking-container .review_icon {
+  background-color: #FFD66D;
+  fill: $base-green;
+}
+
+.each-booking-container .cancel_minus_icon {
+  background-color: #FFD66D;
+  fill: $base-green;
+}

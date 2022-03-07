@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def user_index
+    @title = "Teacher list"
     @users = User.where(user_type: params[:query])
   end
 end
