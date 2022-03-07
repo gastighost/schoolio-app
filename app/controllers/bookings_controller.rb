@@ -23,10 +23,26 @@ class BookingsController < ApplicationController
     flash[:notice] = "Booking for #{@booking.lesson.subtopic.description} confirmed!"
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    redirect_to booking_path(@booking)
+  end
+
   def destroy
     @title = "Bookings"
     @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to bookings_path
+  end
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:performance_level)
   end
 end
