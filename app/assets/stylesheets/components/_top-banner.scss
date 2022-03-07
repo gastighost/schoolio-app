@@ -4,10 +4,10 @@
   background-position: center;
   height: 70px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 0 16px;
   align-items: center;
-  color: #6EBF8B;
+  color: $base-green;
   background-color: #FFD66D;
   font-size: 24px;
   font-style: bold;
@@ -22,4 +22,14 @@
   padding: 4px 8px;
   border-radius: 10px;
   background: $base-green;
+}
+
+.login_icon {
+  background-color: $base-green;
+  text-decoration: none;
+  fill: #FFD66D;
+  padding: 5px;
+  border-radius: 30%;
+  height: 30px;
+  padding-right: 10px;
 }
