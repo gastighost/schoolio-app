@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="each-booking-container">
 <h1><%= @lesson.subtopic.description %></h1>
 
 <br>
@@ -8,7 +8,8 @@
   <p>Duration: <%= @lesson.duration %> mins</p>
   <p>Max Capacity: <%= @lesson.max_capacity %></p>
   <% if current_user.user_type == "student" %>
-  <%= link_to "Book this lesson", course_subtopic_lesson_bookings_path(lesson_id: params[:id]), method: :post, data: { confirm: "Are you sure you want to book?" }, class: "btn btn-success mb-3" %>
+  <br>
+  <%= link_to "Book this lesson", course_subtopic_lesson_bookings_path(lesson_id: params[:id]), method: :post, data: { confirm: "Are you sure you want to book?" }, class: "special_button_green" %>
   <% end %>
   <br>
 
@@ -20,6 +21,6 @@
                   data: { confirm: "Are you sure?" },
                   class: "button_green" %>
   <% end %>
-  <%= link_to "Back to subtopic", course_subtopic_path(@course, @subtopic), class: "button_green" %>
+  <%= link_to "Back to subtopic", course_subtopic_path(@course, @subtopic), class: "special_button_green" %>
   </div>
 </div>

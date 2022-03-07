@@ -1,15 +1,14 @@
-<div class="container mt-4">
+<div class="each-booking-container">
 <h1><%= params[:query].capitalize %> list</h1>
- <%= link_to "Back to bookings", bookings_path, class: "btn btn-secondary" %>
 <% @users.each do |user| %>
-<div class="container my-3 p-2 border">
 <h4><%= user.user_type.capitalize %>: <%= user.name %></h4>
+<br>
 <p>Description: <%= user.description %></p>
 <p>Age: <%= user.age %></p>
 <p>School Year: <%= user.school_year %></p>
 <p>Years of Study: <%= user.years_of_study %></p>
 <p>Learning Type: <%= user.learning_type.capitalize %></p>
 <p>Interest: <%= user.interest.capitalize %></p>
-</div>
 <% end %>
+<%= link_to "Back to bookings", bookings_path, class: "button_yellow_move_down" %>
 </div>
