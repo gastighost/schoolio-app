@@ -1,13 +1,42 @@
-<br>
+<head>
+  <script src='https://8x8.vc/external_api.js' async></script>
+  <style>html, body, #jaas-container { height: 830px; }</style>
+  <script type="text/javascript">
+    window.onload = () => {
+      const api = new JitsiMeetExternalAPI("8x8.vc", {
+        roomName: "vpaas-magic-cookie-0f1a60b28c14458babb38917a68033dc/Schoolio",
+        parentNode: document.querySelector('#jaas-container')
+      });
+    }
+  </script>
+</head>
+
 <div class="each-booking-container">
-<h1><strong>Subject: <%= @booking.lesson.subtopic.course.subject%></strong></h1>
-<h3>Topic: <%= @booking.lesson.subtopic.course.topic %></h3>
-<h3>Subtopic: <%= @booking.lesson.subtopic.description %></h3>
-<br>
-<div class="container">
-<h4>Insert link to video call, here!</h3>
+  <h1><strong>Subject: <%= @booking.lesson.subtopic.course.subject%></strong></h1>
+  <h3>Topic: <%= @booking.lesson.subtopic.course.topic %></h3>
+  <h3>Subtopic: <%= @booking.lesson.subtopic.description %></h3>
+  <br>
+  <!-- Button trigger modal -->
+  <button type="button" class="button_yellow_move_down" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Enter virtual classroom!
+  </button>
+  <br>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="jaas-container"></div>
+      </div>
+    </div>
+  </div>
 </div>
-<img src="https://www.technology.pitt.edu/sites/default/files/blog-images/ZoomMeeting.png" alt="zoom" class="image1">
+
 <br>
 <br>
 
