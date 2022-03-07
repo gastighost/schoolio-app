@@ -27,6 +27,7 @@ document.addEventListener('turbolinks:load', () => {
       borderColor: 'rgb(75, 192, 192)',
       backgroundColor: 'rgb(75, 192, 192)',
       data: JSON.parse(ctx.canvas.dataset.data),
+      tension: 0.1
     }]
   },
   });
