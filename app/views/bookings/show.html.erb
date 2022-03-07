@@ -1,18 +1,36 @@
-<h1><%= @booking.id %></h1>
-<%= link_to "Cancel Booking",
-                  booking_path(@booking),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='https://8x8.vc/external_api.js' async></script>
+    <style>html, body, #jaas-container { height: 600px; }</style>
+    <script type="text/javascript">
+      window.onload = () => {
+        const api = new JitsiMeetExternalAPI("8x8.vc", {
+          roomName: "vpaas-magic-cookie-0f1a60b28c14458babb38917a68033dc/SampleAppInnocentClinicsExpressEnough",
+          parentNode: document.querySelector('#jaas-container')
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="jaas-container" />
+    <h1><%= @booking.id %></h1>
+    <%= link_to "Cancel Booking",
+                      booking_path(@booking),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %>
 
-<br>
-<%= link_to "Leave a review", new_booking_review_path(@booking) %>
-<h4>Your review</h4>
-<%@booking.reviews.each do |review|%>
-<p><%= review.rating %></p>
-<p><%= review.comment %></p>
-<%= link_to 'Edit Review', edit_booking_review_path(@booking, review) %>
-<%= link_to "Delete Review",
-                  review_path(review),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %>
-<% end %>
+    <br>
+    <%= link_to "Leave a review", new_booking_review_path(@booking) %>
+    <h4>Your review</h4>
+    <%@booking.reviews.each do |review|%>
+    <p><%= review.rating %></p>
+    <p><%= review.comment %></p>
+    <%= link_to 'Edit Review', edit_booking_review_path(@booking, review) %>
+    <%= link_to "Delete Review",
+                      review_path(review),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %>
+    <% end %>
+  </body>
+</html>
