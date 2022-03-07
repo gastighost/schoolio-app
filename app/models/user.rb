@@ -7,8 +7,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, :description, :age, :school_year, :years_of_study,
-            :learning_type, :interest, :user_type, presence: true
+  has_one_attached :photo
+
+  validates :name, :age, :school_year, :years_of_study,
+            :user_type, presence: true
 
   validates :school_year, inclusion: { in: 1..13,
                                        message: "Please pick a year level from 1 to 13" }

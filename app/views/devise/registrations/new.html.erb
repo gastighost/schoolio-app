@@ -20,7 +20,6 @@
                   required: true,
                   input_html: { autocomplete: "Please put your full name" } %>
       <%= f.input :description,
-                  required: true,
                   input_html: { autocomplete: "Say something about yourself" } %>
       <%= f.input :age,
                   required: true,
@@ -32,14 +31,13 @@
                   required: true,
                   input_html: { autocomplete: "Teacher experience (If teacher)" } %>
       <%= f.input :learning_type,
-                  required: true,
                   input_html: { autocomplete: "What is your learning type?" } %>
       <%= f.input :interest,
-                  required: true,
                   input_html: { autocomplete: "What is your interest?" } %>
       <%= f.input :user_type,
                   required: true,
                   input_html: { autocomplete: "Are you a student or a teacher?" } %>
+      <%= f.input :photo, as: :file %>
     </div>
 
 
