@@ -10,7 +10,7 @@ class PagesController < ApplicationController
   end
 
   def user_settings
-    @titel = "Settings"
+    @title = "Settings"
   end
 
 end
