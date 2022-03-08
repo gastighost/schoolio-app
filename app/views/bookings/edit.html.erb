@@ -1,9 +1,12 @@
-<div class="container">
+<div class="container-reviews">
+<p>How was your student's performance?</p>
 <%= simple_form_for [ @booking ], html: {class: "review-form"} do |f| %>
   <div class="d-flex justify-content-center">
   <%= f.collection_radio_buttons :performance_level, [[0, "0"], [1, "1"], [2, "2"], [3, "3"], [4, "4"], [5, "5"], [6, "6"], [7, "7"], [8, "8"], [9, "9"], [10, "10"]], :first, :last %>
   </div>
-  <%= f.submit "Submit rating", class: "button_green" %>
+  <br>
+  <%= f.submit "Submit rating", class: "button_yellow_move_down" %>
 <% end %>
-<%= link_to "Return to booking", booking_path(@booking), class: "button_green" %>
+<br>
+<%= link_to "Return to booking", booking_path(@booking), class: "button_yellow_move_down" %>
 </div>
