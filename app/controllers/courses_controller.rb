@@ -6,6 +6,10 @@ class CoursesController < ApplicationController
     else
       @courses = Course.all
     end
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: 'list.html', locals: { movies: @movies } }
+    end
   end
 
   def show

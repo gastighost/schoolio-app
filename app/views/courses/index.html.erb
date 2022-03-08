@@ -1,51 +1,32 @@
-<div class="container">
-<br>
-  <div class="container-index-search">
-    <div class="col-sm-5 search-container">
-      <h1>Find a course</h1>
-      <%= form_tag courses_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "ex. Grade 6 Mathematics"
-        %>
-        <%= button_tag type:"submit", class: "button-search" do %>
-          <i class="fas fa-search"></i>
+<div class="container" data-controller="refresh-list">
+  <br>
+    <div class="container-index-search">
+      <div class="col-sm-5 search-container">
+        <h1>Find a course</h1>
+        <%= form_with url: courses_path, method: :get, html: { data: { refresh_list_target: 'form' } } do |f| %>
+          <%= f.text_field :query,
+                     class: "form-control",
+                     placeholder: 'ex. Grade 6 Mathematics',
+                     value: params[:query],
+                     data: {
+                     refresh_list_target: 'searchInput',
+                     action: "keyup->refresh-list#update"
+                     } %>
         <% end %>
-      <% end %>
+      </div>
     </div>
-  </div>
-<br>
+  <br>
 
   <%= link_to "All bookings", bookings_path, class: "button_green" %>
 
   <% if current_user.user_type == "teacher" %>
-  <%= link_to new_course_path do%>
-    <svg xmlns="http://www.w3.org/2000/svg" class="plus_icon" viewBox="0 0 16 16">
-      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-    </svg>
-      <% end %>
-  <% end %>
-
-
-  <% @courses.each do |course| %>
-    <%= link_to course_path(course) do %>
-    <% if course.photo.key %>
-    <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path course.photo.key, height: 300, crop: :fill %>')">
-    <% else %>
-    <div class="card-img" style="background-image: url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-ocean-boat-blue-solid-color-background.jpg')">
+    <%= link_to new_course_path do %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="plus_icon" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+      </svg>
     <% end %>
-      <div>
-          <h1><strong><%= course.subject %></strong></h1>
-          <ul>
-            <li class="mark"><%= course.topic %></li>
-            <li class="mark">School year: <%= course.school_year %></li>
-            <li class="mark">Performance Level Required: <%= course.performance_level %></li>
-            <li class="mark">Teacher: <%= User.find(course.user_id).name %></li>
-          </ul>
-        </div>
-    </div>
-     <% end %>
   <% end %>
+
+  <%= render 'list', courses: @courses %>
 </div>
