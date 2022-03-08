@@ -8,4 +8,9 @@ class PagesController < ApplicationController
     @title = "Teacher list"
     @users = User.where(user_type: params[:query])
   end
+
+  def user_settings
+    @titel = "Settings"
+  end
+
 end
