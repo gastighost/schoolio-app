@@ -1,0 +1,25 @@
+<% @courses.each do |course| %>
+  <div class="each-booking-container">
+    <h4><strong><%= course.subject %></strong></h2>
+    <h5><%= course.topic %></h5>
+    <p><strong>School Year: </strong> <%= course.school_year %></p>
+    <p><strong>Performance Level: </strong> <%= course.performance_level %></p>
+    <% @bookings = [] %>
+    <% course.subtopics.each do |subtopic| %>
+      <% subtopic.lessons.each do |lesson| %>
+        <% lesson.bookings.each do |booking| %>
+          <% @bookings.push(booking) %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <% @bookings.each do |booking| %>
+      <%= link_to booking_path(booking) do %>
+        <div class ="padding-for-review">
+          <p>Student: <%= User.find(booking.user_id).name %></p>
+          <p>Subtopic: <%= booking.lesson.subtopic.description %></p>
+          <p>Time: <%= booking.lesson.time.strftime("%H:%M") %>, <%= booking.lesson.date.strftime("%d %B %Y (%A)") %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
