@@ -1,40 +1,14 @@
 <div class="bookings-container">
-  <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
+  <% if current_user.user_type == "student" %>
+    <%= render 'student-bookings'  %>
+  <% elsif current_user.user_type == "teacher" %>
+    <%= render 'teacher-bookings' %>
   <% end %>
-
-<canvas id="myChart" width="100px" height="70px" data-labels="<%= @data_keys %>" data-data="<%= @data_values %>"></canvas>
-
-<% @bookings.each do |booking| %>
-<div class="each-booking-container">
-<h4><strong><%= booking.lesson.subtopic.course.subject%></strong></h2>
-<h5><%= booking.lesson.subtopic.course.topic %></h5>
-<h5><%= link_to booking.lesson.subtopic.description, booking_path(booking)%></h5>
-<p><strong>Teacher:</strong> <%= booking.lesson.subtopic.course.user.name%></p>
-<p><%= booking.lesson.date.strftime("%d %B %Y (%A)") %></p>
-<p><strong>Time:</strong> <%= booking.lesson.time.strftime("%H:%M") %></p>
-<p><strong>Duration:</strong> <%= booking.lesson.duration %> mins</p>
-<% if current_user.user_type == "teacher" %>
-<p><strong>Student:</strong> <%= User.find(booking.user_id).name %></p>
-<% end %>
-<% if current_user.user_type == "student" %>
-<%= link_to booking_path(booking),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } do %>
-                <svg xmlns="http://www.w3.org/2000/svg"  class="cancel_minus_icon" viewBox="0 0 16 16">
-                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                  </svg>
-                      <% end %>
-<% end %>
-</div>
-<% end %>
-<br>
-<%= link_to "See all courses", courses_path, class: "button_green_move_down" %>
-<br>
-<br>
-<%= link_to "#{@type.capitalize} profiles", user_index_path(query: @type), class: "button_green_move_down" %>
-<br>
-<br>
-
+  <br>
+  <%= link_to "See all courses", courses_path, class: "button_green_move_down" %>
+  <br>
+  <br>
+  <%= link_to "#{@type.capitalize} profiles", user_index_path(query: @type), class: "button_green_move_down" %>
+  <br>
+  <br>
 </div>
