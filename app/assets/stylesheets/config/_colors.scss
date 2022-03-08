@@ -10,3 +10,18 @@ $gray: #0E0000;
 $light-gray: #F4F4F4;
 $base-green: #6EBF8B;
 $base-yellow: #FFD66D;
+
+
+.mark {
+  margin: 0 -0.4em;
+  padding: 0.1em 0.4em;
+  border-radius: 0.8em 0.3em;
+  background: transparent;
+  background-image: linear-gradient(
+    to right,
+    #6EBF8B,
+    #6ebf8ac0,
+  );
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
