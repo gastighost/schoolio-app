@@ -77,6 +77,9 @@
         <% end %>
       <% end %>
     <% end %>
+    <% if current_user.user_type == "teacher" %>
+      <%= link_to "Rate student", edit_booking_path(@booking), class: "button_yellow_move_down no-margin" %>
+    <% end %>
   </div>
   <br>
   <% if current_user.user_type == "student" %>
@@ -107,11 +110,6 @@
     <% end %>
   <% end %>
   <br>
-  <% if current_user.user_type == "teacher" %>
-    <%= link_to "Rate student", edit_booking_path(@booking), class: "button_yellow_move_down" %>
-    <br>
-    <br>
-  <% end %>
   <% if @booking.performance_level.present? %>
     <h4>Student's Performance</h4>
     <p>Performance Level: <%= @booking.performance_level %></p>
