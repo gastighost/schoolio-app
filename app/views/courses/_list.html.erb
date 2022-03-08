@@ -1,9 +1,10 @@
-<% @courses.each do |course| %>
+<div data-refresh-list-target="list">
+<% courses.each do |course| %>
   <%= link_to course_path(course) do %>
     <% if course.photo.key %>
-      <div data-refresh-list-target="list" class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path course.photo.key, height: 300, crop: :fill %>')">
+      <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path course.photo.key, height: 300, crop: :fill %>')">
     <% else %>
-      <div data-refresh-list-target="list" class="card-img" style="background-image: url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-ocean-boat-blue-solid-color-background.jpg')">
+      <div class="card-img" style="background-image: url('https://www.solidbackgrounds.com/images/3840x2160/3840x2160-ocean-boat-blue-solid-color-background.jpg')">
     <% end %>
       <div>
         <h1><strong><%= course.subject %></strong></h1>
@@ -17,3 +18,4 @@
     </div>
   <% end %>
 <% end %>
+</div>
