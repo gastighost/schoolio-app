@@ -8,16 +8,14 @@
 <% end %>
 <% @lessons.each do |lesson| %>
   <div class="each-booking-container">
-    <h4><strong><%= lesson.subtopic.course.subject %></strong></h2>
-    <h5><%= lesson.subtopic.course.topic %></h5>
+    <h4><strong><%= lesson.subtopic.course.topic %></strong></h4>
     <p><%= lesson.subtopic.description %></p>
-    <p><strong>School Year: </strong> <%= lesson.subtopic.course.school_year %></p>
-    <p><strong>Performance Level: </strong> <%= lesson.subtopic.course.performance_level %></p>
+    <p><strong>School Year: </strong> <%= lesson.subtopic.course.school_year %> (Level <%= lesson.subtopic.course.performance_level %>)</p>
     <p>Time: <%= lesson.time.strftime("%H:%M") %>, <%= lesson.date.strftime("%d %B %Y (%A)") %></p>
 
     <% lesson.bookings.each do |booking| %>
       <%= link_to booking_path(booking) do %>
-        <div class ="padding-for-review">
+        <div class ="student-booked-container">
           <p>Student: <%= User.find(booking.user_id).name %></p>
         </div>
       <% end %>
