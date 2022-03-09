@@ -3,9 +3,9 @@
 <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @course.photo.key, height: 300, crop: :fill %>')">
   <h1><%=@course.subject %></h1>
   <ul>
-    <li><strong>Topic:</strong> <%= @course.topic %></li>
-    <li><strong>School Year:</strong> <%= @course.school_year %></li>
-    <li><strong>Performance Level Req:</strong> <%= @course.performance_level %></li>
+    <li class="list-header">Topic:<%= @course.topic %></li>
+    <li class="list-subtle">School Year:<%= @course.school_year %></li>
+    <li class="list-subtle">Level Required:<%= @course.performance_level %></li>
   </ul>
   <div class="show_courses_links">
   <% if current_user.user_type == "teacher" %>

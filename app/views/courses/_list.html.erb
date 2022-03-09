@@ -9,10 +9,10 @@
       <div>
         <h1><strong><%= course.subject %></strong></h1>
         <ul>
-          <li class="mark"><%= course.topic %></li>
-          <li class="mark">School year: <%= course.school_year %></li>
-          <li class="mark">Performance Level Required: <%= course.performance_level %></li>
-          <li class="mark">Teacher: <%= User.find(course.user_id).name %></li>
+          <li class="list-header"><%= course.topic %></li>
+          <li class="list-subtle">School year: <%= course.school_year %></li>
+          <li class="list-subtle">Level Required: <%= course.performance_level %></li>
+          <li class="list-subtle">Teacher: <%= User.find(course.user_id).name %></li>
         </ul>
       </div>
     </div>
