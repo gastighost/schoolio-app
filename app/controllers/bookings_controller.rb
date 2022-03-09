@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
       @title = "Your Bookings"
       @type = "teacher"
       @bookings = Booking.where(user_id: current_user.id)
-      @data_keys1 = @bookings.map { |booking| booking.lesson.date.strftime("%d.%m.%Y") }
+      @data_keys1 = @bookings.map { |booking| booking.lesson.date }
       @data_values1 = @bookings.map { |booking| booking.performance_level.nil? ? booking.performance_level = 0 : booking.performance_level }
 
       @complete = []
@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
         @complete.push([@data_keys1[index], @data_values1[index]])
       end
       @completed = @complete.sort { |a, b| a[0] <=> b[0] }
-      @data_keys = @completed.map { |data| data[0] }
+      @data_keys = @completed.map { |data| data[0].strftime("%d.%m.%Y") }
       @data_values = @completed.map { |data| data[1] }
     end
   end
