@@ -11,10 +11,14 @@
       </svg>
        <% end %>
     <% else %>
-      <%= image_tag("https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80", height: 40, width: 40, class: "avatar") %>
+      <% if current_user.photo.key %>
+        <%= cl_image_tag current_user.photo.key, height: 40, width: 40, class: "avatar" %>
+      <% else %>
+        <%= image_tag("https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80", height: 40, width: 40, class: "avatar") %>
+      <% end %>
     <% end %>
     <% if user_signed_in? %>
-    <h6><%= current_user.user_type%></h6>
+      <h6><%= current_user.user_type%></h6>
     <% end %>
   </div>
 </div>
