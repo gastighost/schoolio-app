@@ -1,6 +1,4 @@
-<div class="container_subtopic_show">
-
-<br>
+<div class="each-booking-container">
 <div class="subtopic_icon_arrange">
 <h2><%= @subtopic.description %></h2>
 
@@ -20,10 +18,10 @@
                      <% end %>
 <% end %>
 </div>
-
 <br>
 <br>
-<h2>Lesson Schedule</h2>
+<h3>Lesson Schedule</h3>
+<br>
 <% if current_user.user_type == "teacher" %>
 <%= link_to new_course_subtopic_lesson_path(@course, @subtopic) do %>
  <svg xmlns="http://www.w3.org/2000/svg" class="plus_icon" viewBox="0 0 16 16">
@@ -33,7 +31,7 @@
       <% end %>
 <% end %>
 <% @subtopic.lessons.each do |lesson| %>
-<p><%= link_to lesson.date.strftime("%d %B %Y (%A)"), course_subtopic_lesson_path(@course, @subtopic, lesson)%></p>
+<p><%= link_to lesson.date.strftime("%d %B %Y (%A)"), course_subtopic_lesson_path(@course, @subtopic, lesson), class: "button_yellow_move_down"%></p>
 <p>Time: <%= lesson.time.strftime("%H:%M") %></p>
 <p>Duration: <%= lesson.duration %> mins</p>
 <p>Max Capacity: <%= lesson.max_capacity %></p>
