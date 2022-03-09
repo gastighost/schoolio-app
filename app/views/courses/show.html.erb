@@ -47,9 +47,7 @@
 <br>
 <div>
   <% @course.subtopics.each do |subtopic| %>
-    <div class="list-beautiful">
-      <a class="button_list_grey"><%= link_to subtopic.description, course_subtopic_path(@course, subtopic), class: "text-decoration-none"%></a>
-    </div>
+      <a><%= link_to subtopic.description, course_subtopic_path(@course, subtopic), class: "list-beautiful text-decoration-none button_list_grey"%></a>
   <% end %>
 </div>
 <br>
