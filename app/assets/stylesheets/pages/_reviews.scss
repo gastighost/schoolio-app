@@ -43,3 +43,19 @@ input[type=checkbox]+i {
   padding: 20px;
   margin: 20px;
 }
+
+.padding-for-course-review {
+  border-color: #6EBF8B;
+  color: #6EBF8B;
+  border-style: solid;
+  border-width: 3px;
+  height: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 25px;
+
+  p {
+    margin-bottom: 0px;
+  }
+}
