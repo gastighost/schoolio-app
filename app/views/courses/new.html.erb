@@ -4,6 +4,7 @@
   <%= f.input :topic %>
   <%= f.input :school_year %>
   <%= f.input :performance_level %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit "Add course", class: "button-green" %>
 <% end %>
   <%= link_to courses_path do %>
