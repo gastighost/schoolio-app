@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container_course_show_alignment">
 
 <% if @course.photo.key %>
 <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @course.photo.key, height: 300, crop: :fill %>')">
@@ -31,7 +31,8 @@
 </div>
 </div>
 
-
+<br>
+<br>
 
 <div class="list_links_course_subtopics">
   <h3>Course Subtopics</h3>
@@ -44,7 +45,6 @@
       <% end %>
   <% end %>
 </div>
-<br>
 <div>
   <% @course.subtopics.each do |subtopic| %>
     <div class="list-beautiful">

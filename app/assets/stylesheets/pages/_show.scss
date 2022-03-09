@@ -70,3 +70,14 @@
   padding: 5px;
   border-radius: 25px;
 }
+
+.container_course_show_alignment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px;
+}
+
+.container_course_show_alignment .card-img {
+  justify-content: center;
+}
