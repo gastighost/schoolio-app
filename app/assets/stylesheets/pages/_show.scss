@@ -15,9 +15,9 @@
 
 .button_list_grey {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 10px;
-  text-align: left;
+  text-align: center;
 }
 
 .button_list_grey .icon_green {
@@ -82,4 +82,5 @@
 
 .container_course_show_alignment .card-img {
   justify-content: center;
+
 }
