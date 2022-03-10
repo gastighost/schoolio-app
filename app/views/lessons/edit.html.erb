@@ -2,7 +2,7 @@
 <%= simple_form_for [ @course, @subtopic, @lesson ] do |f| %>
   <%= f.input :date %>
   <%= f.input :time %>
-  <%= f.input :duration %>
+  <%= f.input :duration, label: 'Duration (in mins)' %>
   <%= f.input :max_capacity %>
   <%= f.submit "Edit lesson", class: "button_green" %>
 <% end %>
