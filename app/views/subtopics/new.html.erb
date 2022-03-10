@@ -1,6 +1,6 @@
 <div class="container_add_subtopic">
   <%= simple_form_for [ @course, @subtopic ] do |f| %>
-    <strong><%= f.input :description %></strong>
+    <strong><%= f.input :description, required: false %></strong>
     <%= f.submit "Add subtopic", class: "button_yellow" %>
   <% end %>
   <%= link_to course_path(@course) do %>

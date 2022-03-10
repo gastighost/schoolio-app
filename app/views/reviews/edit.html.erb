@@ -5,7 +5,7 @@
     <%= f.collection_radio_buttons :rating, [[1, "1"], [2, "2"], [3, "3"], [4, "4"], [5, "5"]], :first, :last %>
   </div>
   <br>
-  <%= f.input :comment %>
+  <%= f.input :comment, required: false%>
   <%= f.submit "Edit review", class: "button_green_move_down" %>
 <% end %>
 

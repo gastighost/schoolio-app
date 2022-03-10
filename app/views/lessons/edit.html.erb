@@ -1,9 +1,9 @@
 <div class="container">
 <%= simple_form_for [ @course, @subtopic, @lesson ] do |f| %>
-  <%= f.input :date %>
-  <%= f.input :time %>
-  <%= f.input :duration, label: 'Duration (in mins)' %>
-  <%= f.input :max_capacity %>
+  <%= f.input :date, required: false%>
+  <%= f.input :time, required: false%>
+  <%= f.input :duration, required: false, label: 'Duration (in mins)' %>
+  <%= f.input :max_capacity, required: false%>
   <%= f.submit "Edit lesson", class: "button_green" %>
 <% end %>
 <%= link_to course_subtopic_lesson_path(@course, @subtopic, @lesson) do %>
