@@ -36,7 +36,7 @@
 
   <% @subtopic.lessons.each do |lesson| %>
     <%= link_to course_subtopic_lesson_path(@course, @subtopic, lesson) do %>
-      <div class="padding-for-review">
+      <div class="padding-for-lesson">
         <p><%= lesson.date.strftime("%d %B %Y (%A)") %></p>
         <p>Time: <%= lesson.time.strftime("%H:%M") %></p>
         <p>Duration: <%= lesson.duration %> mins</p>
