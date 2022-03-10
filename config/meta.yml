@@ -1,0 +1,4 @@
+meta_product_name: "Schoolio"
+meta_title: "Schoolio - The Tutoring of Tomorrow"
+meta_description: "An application serving the children of tomorrow"
+meta_image: "schoolio-image.png" # should exist in `app/assets/images/`
