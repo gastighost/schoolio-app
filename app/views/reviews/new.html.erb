@@ -6,7 +6,7 @@
 <%= simple_form_for [ @booking, @review ], html: {class: "review-form"} do |f| %>
 
   <div class="d-flex justify-content-center">
-    <%= f.collection_radio_buttons :rating, [[1, "1"], [2, "2"], [3, "3"], [4, "4"], [5, "5"]], :first, :last %>s
+    <%= f.collection_radio_buttons :rating, [[1, "1"], [2, "2"], [3, "3"], [4, "4"], [5, "5"]], :first, :last %>
   </div>
   <br>
   <%= f.input :comment %>
