@@ -54,7 +54,7 @@
 <h3>Course reviews</h3>
 <% @reviews.each do |review| %>
   <div class="padding-for-course-review">
-    <p><strong>Rating: <%= review.rating %></strong></p>
+    <p><strong>Rating: <%= review.rating %> / 5.0</strong></p>
     <p><%= review.comment %></p>
   </div>
 <% end %>
