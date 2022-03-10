@@ -1,9 +1,9 @@
 <div class="container mt-4">
 <%= simple_form_for @course do |f| %>
-  <%= f.input :subject %>
-  <%= f.input :topic %>
-  <%= f.input :school_year %>
-  <%= f.input :performance_level %>
+  <%= f.input :subject, required: false %>
+  <%= f.input :topic, required: false %>
+  <%= f.input :school_year, required: false %>
+  <%= f.input :performance_level, required: false %>
   <%= f.submit "Save changes", class: "btn btn-primary" %>
 <% end %>
 <%= link_to  course_path(@course) do %>
