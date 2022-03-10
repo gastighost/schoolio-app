@@ -16,6 +16,8 @@ age = [19, 21, 23, 24, 35, 46, 27, 38, 29]
 # Student Photos
 student_photo_one = URI.open('https://images.unsplash.com/photo-1596495578065-6e0763fa1178?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80')
 student_photo_two = URI.open('https://images.unsplash.com/photo-1517256673644-36ad11246d21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')
+gaston_photo = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1641483908/clbwd2ksvfcnxfhp4odr.jpg')
+niklas_photo = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1644177976/dggwafls9ftgu8pb21aw.jpg')
 
 # Creating students
 student_one = User.new(email: "student_one@gmail.com", password: 123456, name: "Annabelle", description: Faker::Movie.quote, age: age.sample, school_year: school_year.sample, years_of_study: school_year.sample,
@@ -28,6 +30,16 @@ student_two = User.new(email: "student_two@gmail.com", password: 123456, name: "
 student_two.photo.attach(io: student_photo_two, filename: 'nes.png', content_type: 'image/png')
 student_two.save
 
+gaston = User.new(email: "gaston@gmail.com", password: 123456, name: "Gaston", description: Faker::Movie.quote, age: age.sample, school_year: school_year.sample, years_of_study: school_year.sample,
+  learning_type: "visual", interest: Faker::Games::Pokemon.move, user_type: "student")
+gaston.photo.attach(io: gaston_photo, filename: 'nes.png', content_type: 'image/png')
+gaston.save
+
+niklas = User.new(email: "niklas@gmail.com", password: 123456, name: "Niklas", description: Faker::Movie.quote, age: age.sample, school_year: school_year.sample, years_of_study: school_year.sample,
+  learning_type: "visual", interest: Faker::Games::Pokemon.move, user_type: "student")
+niklas.photo.attach(io: niklas_photo, filename: 'nes.png', content_type: 'image/png')
+niklas.save
+
 # Teacher Photos
 teacher_photo_one = URI.open('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')
 teacher_photo_two = URI.open('https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80')
@@ -39,6 +51,8 @@ teacher_photo_seven = URI.open('https://images.unsplash.com/flagged/photo-155947
 teacher_photo_eight = URI.open('https://images.unsplash.com/photo-1631203928493-a4e4eb2b8da1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80')
 teacher_photo_nine = URI.open('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')
 teacher_photo_ten = URI.open('https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')
+charlotte_photo = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1641806951/exflbxnokpmbg12yxo8l.jpg')
+constantin_photo = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1644837834/avkixotbgs0uxuiukb6r.jpg')
 
 # Creating teachers
 teacher_one = User.new(email: "teacher_one@gmail.com", password: 123456, name: "Anthony", description: Faker::Movie.quote, age: age.sample, school_year: school_year.sample, years_of_study: school_year.sample,
@@ -91,7 +105,17 @@ teacher_ten = User.new(email: "teacher_ten@gmail.com", password: 123456, name: "
 teacher_ten.photo.attach(io: teacher_photo_ten, filename: 'nes.png', content_type: 'image/png')
 teacher_ten.save
 
-teacher_array=[teacher_one, teacher_two, teacher_three, teacher_four, teacher_five, teacher_six, teacher_seven, teacher_eight, teacher_nine, teacher_ten]
+charlotte = User.new(email: "charlotte@gmail.com", password: 123456, name: "Charlotte", description: Faker::Movie.quote, age: age.sample, school_year: school_year.sample, years_of_study: school_year.sample,
+  learning_type: "visual", interest: Faker::Games::Pokemon.move, user_type: "teacher")
+charlotte.photo.attach(io: charlotte_photo, filename: 'nes.png', content_type: 'image/png')
+charlotte.save
+
+constantin = User.new(email: "constantin@gmail.com", password: 123456, name: "Constantin", description: Faker::Movie.quote, age: age.sample, school_year: school_year.sample, years_of_study: school_year.sample,
+  learning_type: "visual", interest: Faker::Games::Pokemon.move, user_type: "teacher")
+constantin.photo.attach(io: constantin_photo, filename: 'nes.png', content_type: 'image/png')
+constantin.save
+
+teacher_array=[teacher_one, teacher_two, teacher_three, teacher_four, teacher_five, teacher_six, teacher_seven, teacher_eight, teacher_nine, teacher_ten, charlotte, constantin]
 
 # Creating 5th grade math courses
 fifth_grade = Scraper.new("https://www.khanacademy.org/math/cc-fifth-grade-math")
