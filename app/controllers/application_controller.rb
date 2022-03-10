@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :description, :age, :school_year, :years_of_study, :learning_type, :interest, :user_type, :photo])
   end
+
+  def default_url_options
+    { host: ENV["DOMAIN"] || "www.schoolio.me" }
+  end
 end
