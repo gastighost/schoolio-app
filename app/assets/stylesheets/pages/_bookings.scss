@@ -48,7 +48,7 @@
   background-color: #FFD66D;
   border-radius: 10px;
   text-decoration: none;
-  color: #6EBF8B;
+  color: #6EBF8B !important;
   padding: 10px;
   margin: 10px;
   margin: auto;
@@ -73,6 +73,7 @@
   padding: 5px;
   display: flex;
   align-items: center;
+  color:  #6EBF8B !important;
 }
 
 .student-booked-container {

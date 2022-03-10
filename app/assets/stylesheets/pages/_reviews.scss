@@ -59,3 +59,14 @@ input[type=checkbox]+i {
     margin-bottom: 0px;
   }
 }
+
+.btn-outline-secondary{
+  color: #FFD66D;
+  border-color: #FFD66D;
+}
+
+.btn-outline-secondary:hover {
+  color: #fff;
+  background-color:#FFD66D;
+  border-color: #FFD66D;
+}
