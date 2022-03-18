@@ -1,0 +1,23 @@
+gaston:
+  email: "gaston@gmail.com"
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: "Gaston Roxas"
+  description: "I am a great student"
+  age: 10
+  school_year: 9
+  years_of_study: 10
+  learning_type: "visual"
+  interest: "football"
+  user_type: "student"
+
+niklas:
+  email: "niklas@gmail.com"
+  encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+  name: "Niklas Franzke"
+  description: "I am a great teacher"
+  age: 20
+  school_year: 9
+  years_of_study: 10
+  learning_type: "visual"
+  interest: "football"
+  user_type: "teacher"
