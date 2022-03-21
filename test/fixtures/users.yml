@@ -1,4 +1,5 @@
 gaston:
+  id: 1
   email: "gaston@gmail.com"
   encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
   name: "Gaston Roxas"
@@ -11,6 +12,7 @@ gaston:
   user_type: "student"
 
 niklas:
+  id: 2
   email: "niklas@gmail.com"
   encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
   name: "Niklas Franzke"
