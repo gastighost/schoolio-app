@@ -4,7 +4,7 @@ class CourseTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
-  test "course name returns correct course name" do
+  test "course fields return correct course fields" do
     course = Course.new(school_year: 8, subject: "Math", topic: 'Algebra', performance_level: 9, user_id: 2)
     assert_equal 8, course.school_year
     assert_equal "Math", course.subject
