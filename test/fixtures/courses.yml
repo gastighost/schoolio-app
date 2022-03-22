@@ -5,3 +5,11 @@ math:
   topic: "Algebra"
   performance_level: 9
   user_id: 2
+
+math2:
+  id: 2
+  school_year: 11
+  subject: "Math"
+  topic: "Units of Measure"
+  performance_level: 9
+  user_id: 2
